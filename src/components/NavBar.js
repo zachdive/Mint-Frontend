@@ -12,7 +12,7 @@ function NavBar({ loggedInUser, setCurrentLoggedInUser }) {
 
   return loggedInUser ? (
     <>
-      <p>Welcome {loggedInUser.username}</p>
+      <p>Welcome {loggedInUser.firstName}</p>
       <nav>
         <ul>
           <li>
