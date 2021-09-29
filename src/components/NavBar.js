@@ -37,8 +37,8 @@ function NavBar({ loggedInUser, setCurrentLoggedInUser }) {
     <nav>
       <ul>
         <li>
-          <NavLink activeStyle={{ color: "red" }} exact to="/projects">
-            Projects
+          <NavLink activeStyle={{ color: "red" }} exact to="/items">
+            Our Products
           </NavLink>
         </li>
         <li>
