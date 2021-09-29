@@ -4,15 +4,23 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 function Signup() {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  
+  
   const history = useHistory();
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     const body = {
-      username,
+      email,
       password,
+      firstName,
+      lastName,
+      phoneNumber,
     };
     await axios.post(`${process.env.REACT_APP_SERVER_HOSTNAME}/signup`, body);
     toast.success("Signup success");
@@ -23,11 +31,11 @@ function Signup() {
     <>
       <h2>Signup</h2>
       <form onSubmit={handleFormSubmit}>
-        <label>Username</label>
+        <label>Email</label>
         <input
           type="text"
-          onChange={(e) => setUsername(e.target.value)}
-          value={username}
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
         />
 
         <label>Password</label>
@@ -36,6 +44,29 @@ function Signup() {
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         />
+
+       <label>First Name</label>
+        <input
+          type="text"
+          onChange={(e) => setFirstName(e.target.value)}
+          value={firstName}
+        />
+
+        <label>Last Name</label>
+        <input
+          type="text"
+          onChange={(e) => setLastName(e.target.value)}
+          value={lastName}
+        />
+
+        <label>Phone Number</label>
+        <input
+          type="number"
+          onChange={(e) => setPhoneNumber(e.target.value)}
+          value={phoneNumber}
+        />
+
+
 
         <button type="submit">Signup</button>
       </form>
