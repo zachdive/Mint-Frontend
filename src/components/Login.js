@@ -4,14 +4,14 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 function Login({ setCurrentLoggedInUser }) {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     const body = {
-      username,
+      email,
       password,
     };
     try {
@@ -20,7 +20,7 @@ function Login({ setCurrentLoggedInUser }) {
         body,
         { withCredentials: true }
       );
-      if (response.data.username) {
+      if (response.data.email) {
         toast.success("Login success");
         setCurrentLoggedInUser(response.data); //Comes from the app component
         history.push("/projects");
@@ -34,11 +34,11 @@ function Login({ setCurrentLoggedInUser }) {
     <>
       <h2>Login</h2>
       <form onSubmit={handleFormSubmit}>
-        <label>Username</label>
+        <label>E-mail</label>
         <input
           type="text"
-          onChange={(e) => setUsername(e.target.value)}
-          value={username}
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
         />
 
         <label>Password</label>

@@ -1,6 +1,5 @@
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
-import AddProject from "./components/AddProject";
 import EditProject from "./components/EditProject";
 import ListProjects from "./components/ListProjects";
 import ProjectDetails from "./components/ProjectDetails";
@@ -11,6 +10,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import AddItem from "./components/AddItem";
 
 function App() {
   const [loggedInUser, setCurrentLoggedInUser] = useState("");
@@ -33,10 +33,10 @@ function App() {
       <ToastContainer />
       <NavBar loggedInUser={loggedInUser} setCurrentLoggedInUser={setCurrentLoggedInUser} />
       <Switch>
-        <Route exact path={["/", "/projects"]} component={ListProjects} />
-        <Route exact path="/projects/add" component={AddProject} />
-        <Route exact path="/projects/:id" component={ProjectDetails} />
-        <Route path="/projects/:id/edit" component={EditProject} />
+        <Route exact path={["/", "/products"]} component={ListProjects} />
+        <Route exact path="/products/add" component={AddItem} />
+        <Route path="/products/:id" component={ProjectDetails} />
+        <Route path="/products/:id/edit" component={EditProject} />
         <Route path="/signup" component={Signup} />
         <Route
           path="/Login"
