@@ -1,8 +1,8 @@
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import EditProject from "./components/EditProject";
-import ListProducts from "./components/ListProducts";
-import ProjectDetails from "./components/ProjectDetails";
+import ListProjects from "./components/ListProjects";
+import ItemDetails from "./components/ItemDetails";
 import NavBar from "./components/NavBar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -39,7 +39,7 @@ function App() {
       <Switch>
         <Route exact path="/items" component={ListProducts} />
         <Route exact path="/products/add" component={AddItem} />
-        <Route path="/products/:id" component={ProjectDetails} />
+        <Route path="/products/:id" component={ItemDetails} />
         <Route path="/products/:id/edit" component={EditProject} />
         <Route path="/signup" component={Signup} />
         <Route
