@@ -9,8 +9,11 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
+import Cart from "./components/Cart"
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { LoggedUserProvider } from "./context/loggedUser";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   const [loggedInUser, setCurrentLoggedInUser] = useState("");
@@ -21,7 +24,7 @@ function App() {
         `${process.env.REACT_APP_SERVER_HOSTNAME}/isloggedin`,
         { withCredentials: true }
       );
-      if (response.data.username) {
+      if (response.data.email) {
         setCurrentLoggedInUser(response.data);
       }
     }
@@ -31,6 +34,7 @@ function App() {
   return (
     <div className="App">
       <ToastContainer />
+      <LoggedUserProvider value={loggedInUser}>
       <NavBar loggedInUser={loggedInUser} setCurrentLoggedInUser={setCurrentLoggedInUser} />
       <Switch>
         <Route exact path={["/", "/projects"]} component={ListProjects} />
@@ -44,7 +48,9 @@ function App() {
             return <Login setCurrentLoggedInUser={setCurrentLoggedInUser} />;
           }}
         />
+        <Route path="/cart" component={Cart} />
       </Switch>
+      </LoggedUserProvider>
     </div>
   );
 }

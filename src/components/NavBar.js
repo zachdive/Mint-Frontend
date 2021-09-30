@@ -30,6 +30,11 @@ function NavBar({ loggedInUser, setCurrentLoggedInUser }) {
               Add a Product
             </NavLink>
           </li>
+          <li>
+            <NavLink activeStyle={{ color: "red" }} to="/cart">
+              My Cart
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </>
