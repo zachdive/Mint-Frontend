@@ -26,7 +26,7 @@ function NavBar({ loggedInUser, setCurrentLoggedInUser }) {
             </NavLink>
           </li>
           <li>
-            <NavLink activeStyle={{ color: "red" }} to="/items/add">
+            <NavLink activeStyle={{ color: "red" }} to="/products/add">
               Add a Product
             </NavLink>
           </li>
