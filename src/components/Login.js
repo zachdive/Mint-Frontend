@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { useHistory, NavLink } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -32,6 +33,8 @@ function Login({ setCurrentLoggedInUser }) {
 
   return (
     <>
+  
+
       <h2>Login</h2>
       <form onSubmit={handleFormSubmit}>
         <label>Email</label>
@@ -50,7 +53,7 @@ function Login({ setCurrentLoggedInUser }) {
 
         <button type="submit">Login</button>
       </form>
-      Don't have an account? Register <NavLink to="/signup">here</NavLink>
+      Don't have an account? Signup <NavLink to="/signup">here!</NavLink>
     </>
   );
 }
