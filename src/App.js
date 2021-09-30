@@ -37,7 +37,7 @@ function App() {
       <LoggedUserProvider value={loggedInUser}>
       <NavBar loggedInUser={loggedInUser} setCurrentLoggedInUser={setCurrentLoggedInUser} />
       <Switch>
-        <Route exact path={["/", "/products"]} component={ListProjects} />
+        <Route exact path="/items" component={ListProducts} />
         <Route exact path="/products/add" component={AddItem} />
         <Route path="/products/:id" component={ProjectDetails} />
         <Route path="/products/:id/edit" component={EditProject} />
