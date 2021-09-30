@@ -20,10 +20,10 @@ function Login({ setCurrentLoggedInUser }) {
         body,
         { withCredentials: true }
       );
-      if (response.data.username) {
+      if (response.data.email) {
         toast.success("Login success");
         setCurrentLoggedInUser(response.data); //Comes from the app component
-        history.push("/projects");
+        history.push("/");
       }
     } catch (e) {
       toast.error("Invalid login");
@@ -34,7 +34,7 @@ function Login({ setCurrentLoggedInUser }) {
     <>
       <h2>Login</h2>
       <form onSubmit={handleFormSubmit}>
-        <label>E-mail</label>
+        <label>Email</label>
         <input
           type="text"
           onChange={(e) => setEmail(e.target.value)}
