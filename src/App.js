@@ -2,7 +2,7 @@ import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import AddProject from "./components/AddProject";
 import EditProject from "./components/EditProject";
-import ListProjects from "./components/ListProjects";
+import ListProducts from "./components/ListProducts";
 import ProjectDetails from "./components/ProjectDetails";
 import NavBar from "./components/NavBar";
 import { ToastContainer } from "react-toastify";
@@ -37,7 +37,7 @@ function App() {
       <LoggedUserProvider value={loggedInUser}>
       <NavBar loggedInUser={loggedInUser} setCurrentLoggedInUser={setCurrentLoggedInUser} />
       <Switch>
-        <Route exact path={["/", "/projects"]} component={ListProjects} />
+        <Route exact path="/products" component={ListProducts} />
         <Route exact path="/projects/add" component={AddProject} />
         <Route exact path="/projects/:id" component={ProjectDetails} />
         <Route path="/projects/:id/edit" component={EditProject} />
