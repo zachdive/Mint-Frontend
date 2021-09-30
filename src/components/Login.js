@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { useHistory, NavLink } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -23,7 +24,7 @@ function Login({ setCurrentLoggedInUser }) {
       if (response.data.email) {
         toast.success("Login success");
         setCurrentLoggedInUser(response.data); //Comes from the app component
-        history.push("/projects");
+        history.push("/");
       }
     } catch (e) {
       toast.error("Invalid login");
@@ -32,9 +33,11 @@ function Login({ setCurrentLoggedInUser }) {
 
   return (
     <>
+  
+
       <h2>Login</h2>
       <form onSubmit={handleFormSubmit}>
-        <label>E-mail</label>
+        <label>Email</label>
         <input
           type="text"
           onChange={(e) => setEmail(e.target.value)}
@@ -50,7 +53,7 @@ function Login({ setCurrentLoggedInUser }) {
 
         <button type="submit">Login</button>
       </form>
-      Don't have an account? Register <NavLink to="/signup">here</NavLink>
+      Don't have an account? Signup <NavLink to="/signup">here!</NavLink>
     </>
   );
 }

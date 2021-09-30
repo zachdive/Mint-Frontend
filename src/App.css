@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+
+  .btn-text {
+    margin-left: 5px;
+  }
+
+  .google-icon,
+  .facebook-icon {
+    width: 30px;
+    height: 30px;
+  }
+
