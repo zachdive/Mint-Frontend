@@ -1,7 +1,7 @@
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import EditProject from "./components/EditProject";
-import ListProjects from "./components/ListProjects";
+import ListProducts from "./components/ListProducts";
 import ItemDetails from "./components/ItemDetails";
 import NavBar from "./components/NavBar";
 import { ToastContainer } from "react-toastify";
@@ -13,7 +13,10 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import AddItem from "./components/AddItem";
 import { LoggedUserProvider } from "./context/loggedUser";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import PrivateRoute from "./components/PrivateRoute";
+import FarmerView from "./components/FarmerView";
+import UserProfile from "./components/UserProfile";
 
 function App() {
   const [loggedInUser, setCurrentLoggedInUser] = useState("");
@@ -32,14 +35,19 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App container">
       <ToastContainer />
       <LoggedUserProvider value={loggedInUser}>
       <NavBar loggedInUser={loggedInUser} setCurrentLoggedInUser={setCurrentLoggedInUser} />
       <Switch>
-        <Route exact path="/items" component={ListProducts} />
+      {loggedInUser.isFarmer ? (
+        <Route exact path="/products/add" component={AddItem} />
+      ) : (
+        <>
+        <Route exact path="/products" component={ListProducts} />
         <Route exact path="/products/add" component={AddItem} />
         <Route path="/products/:id" component={ItemDetails} />
+        <Route exact path="/user/:id" component={UserProfile} />
         <Route path="/products/:id/edit" component={EditProject} />
         <Route path="/signup" component={Signup} />
         <Route
@@ -49,6 +57,9 @@ function App() {
           }}
         />
         <Route path="/cart" component={Cart} />
+        <Route path="/"/>
+        </>
+        )}
       </Switch>
       </LoggedUserProvider>
     </div>
