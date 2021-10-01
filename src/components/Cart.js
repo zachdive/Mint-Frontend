@@ -4,27 +4,36 @@ import { NavLink } from "react-router-dom";
 import { LoggedUserConsumer } from "../context/loggedUser";
 
 
-function Cart({match}) {
+function Cart() {
     const loggedInUser = useContext(LoggedUserConsumer);
-    const [cart, setCart] = useState({});
+    const [userCart, setUserCart] = useState({});
 
+    //2
     useEffect(() => {
-        async function getCart(){
-            const userCart = await axios.get( `${process.env.REACT_APP_SERVER_HOSTNAME}/cart/${loggedInUser.cart._id}`);
-            setCart(userCart);
+        async function getUser (){
+            const user = await axios.get(`${process.env.REACT_APP_SERVER_HOSTNAME}/usercart`, { withCredentials: true})
+            setUserCart(user.data);
         } 
-        getCart();
+        getUser();
+        
     }, []);
+    
 
+    //1
+    //3
     return (
         <>
+        <h2>Cart</h2>
         <ul>
-            {cart && cart.products.map((item) => {
+            {userCart.cart?.products.map((item, index) => {
                 return (
-                    <li>
-                        <NavLink>
-                            <h4>{item.name}</h4>
-                            <img src={item.imageUrl}/>
+                    <li key={index}>
+                        <NavLink to={`/products/${item.item._id}`}>
+                            <div>
+                                <h4>{item.item.name}</h4>
+                                <h6>{item.item.price}</h6>
+                                <p>{item.item.expire_in}</p>
+                            </div>
                         </NavLink>
                     </li>
                 );

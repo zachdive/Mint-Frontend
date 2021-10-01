@@ -28,16 +28,18 @@ function ItemDetails({ match }) {
       quantity: quantity,
       purchasePrice: `${item.price * quantity}`,
     };
-    console.log(loggedInUser);
 
     if(loggedInUser.cart){
       await axios.put(`${process.env.REACT_APP_SERVER_HOSTNAME}/cart/${loggedInUser.cart._id}`, product, {withCredentials: true});
+
+      toast.success("Added to cart");
+      history.push("/products");
     } else{
       await axios.post(`${process.env.REACT_APP_SERVER_HOSTNAME}/cart`, product, { withCredentials: true});
+
+      toast.success("Added to cart");
+      history.push("/products");
     }
-    
-    toast.success("Added to cart");
-    history.push("/products");
   };
 
   // const handleDeleteProject = async (id) => {

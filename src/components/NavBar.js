@@ -31,7 +31,7 @@ function NavBar({ loggedInUser, setCurrentLoggedInUser }) {
             </NavLink>
           </li>
           <li>
-            <NavLink activeStyle={{ color: "red" }} to={`/cart/${loggedInUser.cart._id}`}>
+            <NavLink activeStyle={{ color: "red" }} to={`/cart`}>
               My Cart
             </NavLink>
           </li>
