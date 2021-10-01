@@ -18,13 +18,14 @@ function ListProducts() {
 
   return (
     <ul>
-      <p>working</p>
       {products.map((product) => {
         return (
-          <li key={product._id}>
+          <li key={product._id} className="product-card">
             <NavLink to={`/products/${product._id}`}><img src={product.imageUrl} width = "50px"  height = "50px"/></NavLink>
             <NavLink to={`/products/${product._id}`}>{product.name}</NavLink>
             <p>{product.category}</p>
+            <p>{product.quantity_available}</p>
+            <p>{product.price}€</p>
           </li>
         );
       })}

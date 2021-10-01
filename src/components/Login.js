@@ -29,8 +29,8 @@ function Login({ setCurrentLoggedInUser }) {
         toast.success("Login success");
         setCurrentLoggedInUser(response.data); //Comes from the app component
         //NotWorking______________________________________________________
-        if(loggedInUser.isFarmer === true) {
-          history.push(`/user/${loggedInUser._id}`);
+        if(response.data.isFarmer === true) {
+          history.push(`/user/${response.data._id}`);
         } else {
           history.push("/products");
         }
