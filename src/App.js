@@ -48,6 +48,13 @@ function App() {
             return <Login setCurrentLoggedInUser={setCurrentLoggedInUser} />;
           }}
         />
+         {/* GOOGLE_LOGIN */}
+         <Route exact path="/login-google" render={
+            () => {
+              window.location.href = 
+              `${process.env.REACT_APP_SERVER_HOSTNAME}/auth/google`
+            }
+          }/>
         <Route path="/cart" component={Cart} />
       </Switch>
       </LoggedUserProvider>

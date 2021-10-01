@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import SignupProvider from "./SignupProvider";
+
 import { useHistory, NavLink } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -10,6 +10,7 @@ function Signup() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [isFarmer, setIsFarmer] = useState(false);
   
   
   const history = useHistory();
@@ -22,15 +23,16 @@ function Signup() {
       firstName,
       lastName,
       phoneNumber,
+      isFarmer,
     };
     await axios.post(`${process.env.REACT_APP_SERVER_HOSTNAME}/signup`, body);
     toast.success("Signup success");
-    history.push("/projects");
+    history.push("/login");
   };
 
   return (
     <>
-     <SignupProvider />
+  
       
       <h2>Signup</h2>
       <form onSubmit={handleFormSubmit}>
@@ -67,6 +69,14 @@ function Signup() {
           type="text"
           onChange={(e) => setPhoneNumber(e.target.value)}
           value={phoneNumber}
+        />
+
+        <label>Are you a farmer?</label>
+        <input
+          type="checkbox"
+          checked={isFarmer}
+          onChange={() => setIsFarmer(!isFarmer)}
+          
         />
 
 
