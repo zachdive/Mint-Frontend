@@ -41,7 +41,7 @@ function AddItem() {
     
     await axios.post(`${process.env.REACT_APP_SERVER_HOSTNAME}/products`, body);
     toast.success("Product created");
-    history.push("/items");
+    history.push("/products");
   };
 
 

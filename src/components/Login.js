@@ -1,13 +1,17 @@
-import React, { useState } from "react";
-
+import React, { useState, useContext } from "react";
+import SignupProvider from "./SignupProvider";
 import { useHistory, NavLink } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { LoggedUserConsumer } from "../context/loggedUser";
+
 
 function Login({ setCurrentLoggedInUser }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
+  const loggedInUser = useContext(LoggedUserConsumer);
+
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -24,7 +28,13 @@ function Login({ setCurrentLoggedInUser }) {
       if (response.data.email) {
         toast.success("Login success");
         setCurrentLoggedInUser(response.data); //Comes from the app component
-        history.push("/");
+        //NotWorking______________________________________________________
+        if(response.data.isFarmer === true) {
+          history.push(`/user/${response.data._id}`);
+        } else {
+          history.push("/products");
+        }
+        //________________________________________________________________
       }
     } catch (e) {
       toast.error("Invalid login");
@@ -33,9 +43,10 @@ function Login({ setCurrentLoggedInUser }) {
 
   return (
     <>
-  
+   <SignupProvider />
 
       <h2>Login</h2>
+
       <form onSubmit={handleFormSubmit}>
         <label>Email</label>
         <input
