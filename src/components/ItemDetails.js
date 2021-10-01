@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useHistory, NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
+import { LoggedUserConsumer } from "../context/loggedUser";
 
 function ItemDetails({ match }) {
+  const loggedInUser = useContext(LoggedUserConsumer);
   const [item, setItem] = useState({});
 
   const [quantity, setQuantity] = useState(1);
-  const [deliveryFee, setDeliveryFee] = useState(3.95);
-  const [totalPrice, setTotalPrice] = useState("");
-  const [status, setStatus] = useState("Not processed");
 
   const history = useHistory();
 
@@ -29,10 +28,14 @@ function ItemDetails({ match }) {
       quantity: quantity,
       purchasePrice: `${item.price * quantity}`,
     };
+    console.log(loggedInUser);
 
-    debugger;
+    if(loggedInUser.cart){
+      await axios.put(`${process.env.REACT_APP_SERVER_HOSTNAME}/cart/${loggedInUser.cart._id}`, product, {withCredentials: true});
+    } else{
+      await axios.post(`${process.env.REACT_APP_SERVER_HOSTNAME}/cart`, product, { withCredentials: true});
+    }
     
-    await axios.post(`${process.env.REACT_APP_SERVER_HOSTNAME}/cart`, product, { withCredentials: true});
     toast.success("Added to cart");
     history.push("/products");
   };
@@ -54,7 +57,7 @@ function ItemDetails({ match }) {
       <h6>{item.expire_in}</h6>
       <p>{item.description}</p>
       {item.imageUrl && <img src={item.imageUrl} alt="product" />}
-
+      
       <button onClick={handleAddToCart}>Add to cart</button>
 
       {/* <NavLink to={`/projects/${product._id}/edit`}>Edit</NavLink> */}
