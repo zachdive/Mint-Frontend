@@ -1,7 +1,7 @@
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import EditProject from "./components/EditProject";
-import ListProjects from "./components/ListProjects";
+import ListProducts from "./components/ListProducts";
 import ItemDetails from "./components/ItemDetails";
 import NavBar from "./components/NavBar";
 import { ToastContainer } from "react-toastify";
