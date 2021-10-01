@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import SignupProvider from "./SignupProvider";
 import { useHistory, NavLink } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -42,9 +43,10 @@ function Login({ setCurrentLoggedInUser }) {
 
   return (
     <>
-  
+   <SignupProvider />
 
       <h2>Login</h2>
+
       <form onSubmit={handleFormSubmit}>
         <label>Email</label>
         <input

@@ -26,7 +26,7 @@ function NavBar({ loggedInUser, setCurrentLoggedInUser }) {
         </Nav.Item>
         <NavDropdown title= {`${loggedInUser.firstName} ${loggedInUser.lastName}`} id="nav-dropdown">
           <NavDropdown.Item eventKey="4.1" href={`/user/${loggedInUser._id}`}>My profile</NavDropdown.Item>
-          <NavDropdown.Item eventKey="4.2">Orders</NavDropdown.Item>
+          <NavDropdown.Item eventKey="4.2" href="/orders">Orders</NavDropdown.Item>
           {loggedInUser.isFarmer === true && <NavDropdown.Item eventKey="4.2" href="/products/add">Add a product</NavDropdown.Item>}
           <NavDropdown.Divider />
           <NavDropdown.Item eventKey="4.4">

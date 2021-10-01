@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import SignupProvider from "./SignupProvider";
+
 import { useHistory, NavLink } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -32,7 +32,7 @@ function Signup() {
 
   return (
     <>
-     <SignupProvider />
+  
       
       <h2>Signup</h2>
       <form onSubmit={handleFormSubmit}>

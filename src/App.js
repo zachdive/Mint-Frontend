@@ -46,6 +46,13 @@ function App() {
         <>
         <Route exact path="/products" component={ListProducts} />
         <Route exact path="/products/add" component={AddItem} />
+        {/* <Route 
+          path="/products/:id" 
+          render= {()=> {
+            return <ItemDetails loggedInUser={loggedInUser} />
+          }}
+        /> */}
+
         <Route path="/products/:id" component={ItemDetails} />
         <Route exact path="/user/:id" component={UserProfile} />
         <Route path="/products/:id/edit" component={EditProject} />
@@ -56,6 +63,13 @@ function App() {
             return <Login setCurrentLoggedInUser={setCurrentLoggedInUser} />;
           }}
         />
+         {/* GOOGLE_LOGIN */}
+         <Route exact path="/login-google" render={
+            () => {
+              window.location.href = 
+              `${process.env.REACT_APP_SERVER_HOSTNAME}/auth/google`
+            }
+          }/>
         <Route path="/cart" component={Cart} />
         <Route path="/"/>
         </>
