@@ -25,7 +25,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #61fb8d;
 }
 
 @keyframes App-logo-spin {
@@ -39,6 +39,7 @@
 
 
 
+/* Signup Icons */
 
   .btn-text {
     margin-left: 5px;
@@ -54,3 +55,7 @@
   .signup-provider{
     cursor: pointer;
   }
+
+  /* Loading Indicator */
+
+  
