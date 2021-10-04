@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useHistory, NavLink } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import SignupProvider from "./SignupProvider";
 
 function Signup() {
   const [username, setUsername] = useState("");
@@ -33,6 +34,7 @@ function Signup() {
   return (
     <>
   
+  <SignupProvider />
       
       <h2>Signup</h2>
       <form onSubmit={handleFormSubmit}>
