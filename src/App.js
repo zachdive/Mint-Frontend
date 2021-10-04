@@ -42,9 +42,8 @@ function App() {
       <Switch>
       {loggedInUser.isFarmer ? (
         <>
-        <Route exact path="/products/add" component={AddItem} />
+        <Route exact path="/product/add" component={AddItem} />
         <Route exact path="/products" component={ListProducts} />
-        <Route exact path="/products/add" component={AddItem} />
         {/* <Route 
           path="/products/:id" 
           render= {()=> {
@@ -52,9 +51,9 @@ function App() {
           }}
         /> */}
 
-        <Route path="/products/:id" component={ItemDetails} />
+        <Route exact path="/products/:id" component={ItemDetails} />
         <Route exact path="/user/:id" component={UserProfile} />
-        <Route path="/products/:id/edit" component={EditProject} />
+        <Route exact path="/products/:id/edit" component={EditProject} />
         <Route path="/signup" component={Signup} />
         <Route
           path="/Login"
@@ -83,9 +82,9 @@ function App() {
           }}
         /> */}
 
-        <Route path="/products/:id" component={ItemDetails} />
+        <Route exact path="/products/:id" component={ItemDetails} />
         <Route exact path="/user/:id" component={UserProfile} />
-        <Route path="/products/:id/edit" component={EditProject} />
+        <Route exact path="/products/:id/edit" component={EditProject} />
         <Route path="/signup" component={Signup} />
         <Route
           path="/Login"
