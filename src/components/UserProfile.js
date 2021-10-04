@@ -14,7 +14,7 @@ function UserProfile() {
             <div className="col-md-9">
             <span>
                 <h1>{`${loggedInUser.firstName} ${loggedInUser.lastName}`}</h1>
-                <h3>Consumer</h3>
+                {loggedInUser.isFarmer ? (<h3>Farmer</h3>) : (<h3>Consumer</h3>)}
                 <NavLink exact to={`/user/${loggedInUser._id}/edit`}>Edit</NavLink>
                 <p>{`${loggedInUser.username}`}</p>
             </span>

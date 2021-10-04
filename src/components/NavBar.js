@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { NavLink, Link } from "react-router-dom";
 import axios from "axios";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
@@ -10,9 +10,12 @@ import { useHistory } from "react-router-dom";
 
 
 function NavBar({ loggedInUser, setCurrentLoggedInUser }) {
-  //Passing user
+  const [loading, setLoading] = React.useState(false);
+  const [products, setProducts] = useState([]);
+  const searchRef = React.useRef();
+  const [firstThreeFromSearch, setFirstThreeFromSearch] = React.useState([]);
 
-  const history = useHistory();
+const history = useHistory();
   
   //Logout
   const logoutUser = async () => {
@@ -24,6 +27,48 @@ function NavBar({ loggedInUser, setCurrentLoggedInUser }) {
     history.push("/login");
   };
 
+  //Search Stuff
+
+  //  useEffect(() => {
+  //     async function getProducts() {
+  //       const response = await axios.get(
+  //         `${process.env.REACT_APP_SERVER_HOSTNAME}/products`,
+  //         { withCredentials: true }
+  //       );
+  //       setProducts(response.data);
+  //     }
+    
+  const getProducts = (query = null, limit = 0, stock = 'false') => {
+    return axios.get(query ? `${process.env.REACT_APP_SERVER_HOSTNAME}/products?query=${query}&limit=${limit}&stock=${stock}` : `${process.env.REACT_APP_SERVER_HOSTNAME}/products?limit=${limit}&stock=${stock}`);
+}
+
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const search = searchRef.current.value;
+
+    history.push(`/products?query=${search}`);
+    searchRef.current.value = '';
+    setFirstThreeFromSearch([]);
+}
+
+const handleClick = () => {
+    searchRef.current.value = '';
+    setFirstThreeFromSearch([]);
+}
+
+const handleChange = async () => {
+    const search = searchRef.current.value;
+    if(search) {
+        const response = await getProducts(search, 6, 'true');
+        setFirstThreeFromSearch(response.data);
+    } else {
+        setFirstThreeFromSearch([]);
+    }
+}
+
+
+
   return loggedInUser ? (
     <>
       <Nav variant="pills" activeKey="1">
@@ -32,6 +77,55 @@ function NavBar({ loggedInUser, setCurrentLoggedInUser }) {
             Our Products
           </Nav.Link>
         </Nav.Item>
+        <Nav.Item>
+        <li className='nav-item' style={{position: 'relative'}}>
+                            <form className="d-flex" onSubmit={handleFormSubmit}>
+                                <input className="form-control me-2" type="text" placeholder="Search for a product.." aria-label="Search" onKeyUp={handleChange} ref={searchRef} />
+                                <button className="btn btn-outline-dark" type='submit'>Search</button>
+                            </form>
+                            <div className={(firstThreeFromSearch.length ? 'd-block' : 'd-none') + ' m-0 p-0 custom-width border bg-white'}
+                                style={{position: 'absolute', top: '50px', zIndex: '50'}}>
+                                <div className='me-2 p-0 custom-display mb-2' style={{width: '130px'}}>
+                                    <div className="list-group" id="list-tab" role="tablist">
+                                    {
+                                        firstThreeFromSearch.map((product, index) => {
+                                            return(
+                                                <a key={product._id} className={"p-1 list-group-item list-group-item-action list-group-item-light rounded-0 border-0" + (index === 0 ? ' active' : '')} id={`list-${index}-list`} data-bs-toggle="list" href={`#list-${index}`} role="tab" aria-controls={product.name}>
+                                                    {product.name.length > 15 ? product.name.substr(0, 15) + '...' : product.name}
+                                                </a>
+                                            )
+                                        })
+                                    }
+                                    </div>
+                                </div>
+
+                                <div className='p-0 m-0 custom-display' style={{width: '300px'}}>
+                                    <div className="tab-content" id="nav-tabContent">
+                                    {
+                                        firstThreeFromSearch.map((product, index) => {
+                                            return (
+                                            <div key={product._id} className={"tab-pane fade show" + (index === 0 ? ' active' : '')} id={`list-${index}`} role="tabpanel" aria-labelledby={`list-${index}-list`}>
+                                                <div className="container-fluid p-0 d-flex flex-column">
+                                                    <div className='me-1'>
+                                                        <img width='80px' src= {product.imageUrl} alt="..." />
+                                                    </div>
+                                                    <div className='text-wrap' style={{height: '200px', fontSize: '0.8rem', overflowY: 'hidden'}}>
+    
+                  
+                                                        <Link to={`/products/${product._id}`} onClick={handleClick} className='btn btn-primary btn-sm ms-1'>View Product</Link>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            )
+                                        })
+                                    }
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        </Nav.Item>
+                        
+        
         <NavDropdown title= {`${loggedInUser.firstName} ${loggedInUser.lastName}`} id="nav-dropdown">
           <NavDropdown.Item eventKey="4.1" href={`/user/${loggedInUser._id}`}>My profile</NavDropdown.Item>
           <NavDropdown.Item eventKey="4.2" href="/orders">Orders</NavDropdown.Item>
