@@ -27,7 +27,7 @@ function App() {
         `${process.env.REACT_APP_SERVER_HOSTNAME}/isloggedin`,
         { withCredentials: true }
       );
-      if (response.data.email) {
+      if (response.data.firstName) {
         setCurrentLoggedInUser(response.data);
       }
     }
