@@ -7,7 +7,7 @@ import { LoggedUserConsumer } from "../context/loggedUser";
 
 
 function Login({ setCurrentLoggedInUser }) {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
   const loggedInUser = useContext(LoggedUserConsumer);
@@ -16,7 +16,7 @@ function Login({ setCurrentLoggedInUser }) {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     const body = {
-      email,
+      username,
       password,
     };
     try {
@@ -25,7 +25,7 @@ function Login({ setCurrentLoggedInUser }) {
         body,
         { withCredentials: true }
       );
-      if (response.data.email) {
+      if (response.data.username) {
         toast.success("Login success");
         setCurrentLoggedInUser(response.data); //Comes from the app component
         //NotWorking______________________________________________________
@@ -51,8 +51,8 @@ function Login({ setCurrentLoggedInUser }) {
         <label>Email</label>
         <input
           type="text"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
+          onChange={(e) => setUsername(e.target.value)}
+          value={username}
         />
 
         <label>Password</label>

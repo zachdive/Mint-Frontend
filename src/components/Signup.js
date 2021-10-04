@@ -5,7 +5,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 function Signup() {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -18,7 +18,7 @@ function Signup() {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     const body = {
-      email,
+      username,
       password,
       firstName,
       lastName,
@@ -39,8 +39,8 @@ function Signup() {
         <label>Email</label>
         <input
           type="text"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
+          onChange={(e) => setUsername(e.target.value)}
+          value={username}
         />
 
         <label>Password</label>
