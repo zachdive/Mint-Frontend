@@ -4,19 +4,24 @@ import axios from "axios";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { MdShoppingCart } from "react-icons/md";
-import { IconContext } from 'react-icons';
+import { IconContext } from 'react-icons'
+import {toast} from 'react-toastify';
+import { useHistory } from "react-router-dom";
 
 
 function NavBar({ loggedInUser, setCurrentLoggedInUser }) {
   //Passing user
 
-
+  const history = useHistory();
+  
   //Logout
   const logoutUser = async () => {
     await axios.post(`${process.env.REACT_APP_SERVER_HOSTNAME}/logout`, null, {
       withCredentials: true,
     });
     setCurrentLoggedInUser("");
+    toast.success(logoutUser.data);
+    history.push("/login");
   };
 
   return loggedInUser ? (
