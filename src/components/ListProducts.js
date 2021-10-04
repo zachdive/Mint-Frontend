@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
 import Search from "./SearchBar";
+import LoadingIndicator from "./LoadingIndicator"
+
 
 function ListProducts() {
   const [products, setProducts] = useState([]);
@@ -36,7 +38,10 @@ useEffect(() => {
   }, []);
 
   return (
+    <>
+    <LoadingIndicator />
     <div className="Mainfeed">
+
     <Search searchInput={searchInput}  searchProductFilter = {searchProductFilter} />
     <ul>
      
@@ -53,7 +58,10 @@ useEffect(() => {
       })}
     </ul>
     </div>
-  );
+  
+  </>
+ 
+ );
 }
 
 export default ListProducts;

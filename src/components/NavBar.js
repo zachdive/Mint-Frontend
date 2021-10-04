@@ -3,10 +3,13 @@ import { NavLink } from "react-router-dom";
 import axios from "axios";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { MdShoppingCart } from "react-icons/md";
+import { IconContext } from 'react-icons';
 
 
 function NavBar({ loggedInUser, setCurrentLoggedInUser }) {
   //Passing user
+
 
   //Logout
   const logoutUser = async () => {
@@ -34,9 +37,11 @@ function NavBar({ loggedInUser, setCurrentLoggedInUser }) {
           </NavDropdown.Item>
         </NavDropdown>
         <Nav.Item>
-          <Nav.Link eventKey="3" href="/cart">
-            Cart
-          </Nav.Link>
+         
+          <IconContext.Provider value={{color: 'black', size: '3rem' }}>
+                                        <NavLink  eventKey="3" to='/cart'><MdShoppingCart /></NavLink>
+          </IconContext.Provider>
+         
         </Nav.Item>
       </Nav>
     </>

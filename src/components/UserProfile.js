@@ -16,8 +16,7 @@ function UserProfile() {
                 <h1>{`${loggedInUser.firstName} ${loggedInUser.lastName}`}</h1>
                 <h3>Consumer</h3>
                 <NavLink exact to={`/user/${loggedInUser._id}/edit`}>Edit</NavLink>
-                <p>E-mail: {loggedInUser.email}</p>
-                <p>Phone number: {loggedInUser.phoneNumber}</p>
+                <p>{`${loggedInUser.username}`}</p>
             </span>
             </div>
         </div>
