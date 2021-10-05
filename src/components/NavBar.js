@@ -70,11 +70,7 @@ function NavBar({ loggedInUser, setCurrentLoggedInUser }) {
       <NavDropdown.Divider />
       <NavDropdown.Item eventKey="4.4">Separated link</NavDropdown.Item>
     </NavDropdown> */}
-      <Nav.Item>
-        <Nav.Link eventKey="3" href="/cart">
-          Cart
-        </Nav.Link>
-      </Nav.Item>
+
     </Nav>
   </>
   );
