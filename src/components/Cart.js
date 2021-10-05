@@ -17,8 +17,14 @@ function Cart() {
     getUser();
   }, []);
 
-  const handleDeleteButton = async () => {
-    await axios.put()
+  const handleDeleteButton = async (item) => {
+    const product = {
+        itemId: item.item._id,
+        quantity: item.quantity,
+        purchasePrice: `${item.item.price * item.quantity}`,
+    };
+    const response = await axios.put(`${process.env.REACT_APP_SERVER_HOSTNAME}/cart/${userCart._id}/remove`, product, { withCredentials: true });
+    setUserCart(response.data);
   }
 
   const handleQuantityButton = async (statement, item) => {
@@ -43,7 +49,6 @@ function Cart() {
       <h2>Cart</h2>
       <ul>
         {userCart && userCart.products?.map((item, index) => {
-         
 
           return (
             <li key={index}>
@@ -62,7 +67,7 @@ function Cart() {
                         +
                     </button>
                   </div>
-                  <button onClick={handleDeleteButton}>Remove</button>
+                  <button onClick={() => handleDeleteButton(item)}>Remove</button>
                 </div>
             </li>
           );
