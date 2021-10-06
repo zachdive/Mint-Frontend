@@ -9,6 +9,7 @@ import {toast} from 'react-toastify';
 import { useHistory } from "react-router-dom";
 
 
+
 function NavBar({ loggedInUser, setCurrentLoggedInUser }) {
   const [loading, setLoading] = React.useState(false);
   const [products, setProducts] = useState([]);

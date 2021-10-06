@@ -11,7 +11,7 @@ const SignupProvider = () => {
 
     <NavLink  exact to="/login-google" className='mb-2 google-btn'>
     <GoogleIcon /> 
-    <span className='btn-text'>Login with Google</span>
+    <span className='btn-text'>Continue with Google</span>
     </NavLink>
      
      
