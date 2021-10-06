@@ -17,6 +17,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import PrivateRoute from "./components/PrivateRoute";
 import FarmerView from "./components/FarmerView";
 import UserProfile from "./components/UserProfile";
+import UserEdit from "./components/UserEdit";
 
 function App() {
   const [loggedInUser, setCurrentLoggedInUser] = useState("");
@@ -53,7 +54,7 @@ function App() {
 
         <Route exact path="/products/:id" component={ItemDetails} />
         <Route exact path="/user/:id" component={UserProfile} />
-        <Route exact path="/products/:id/edit" component={EditProject} />
+        <Route exact path="/user/:id/edit" component={UserEdit} />
         <Route path="/signup" component={Signup} />
         <Route
           path="/Login"
