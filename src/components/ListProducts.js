@@ -146,7 +146,7 @@ function ListProducts() {
                   } else {
                     return (
                       <li key={index} className="product-card">
-                        <NavLink to={`/products,/${item._id}`}>
+                        <NavLink to={`/products/${item._id}`}>
                           <img src={item.imageUrl} width="50px" height="50px" />
                         </NavLink>
                         <p>{item.name}</p>
