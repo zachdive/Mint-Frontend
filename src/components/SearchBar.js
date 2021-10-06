@@ -1,11 +1,11 @@
- import { Divider, Input } from 'antd';
+ import { Input } from 'antd';
 import React from 'react';
 
 
 
 
 
-function Search({ searchInput, searchProductFilter }) {
+function Search({ searchInput, searchUserFilter }) {
 	
 	
 	
@@ -16,7 +16,7 @@ function Search({ searchInput, searchProductFilter }) {
 	return (
 		<div className="parentDivSearch">
 			
-			<Input type="text" placeholder="Search food..." value={searchInput} onInput={(e) => searchProductFilter(e.target.value)} />
+			<Input type="text" placeholder="Search for a farm..." value={searchInput} onInput={(e) => searchUserFilter(e.target.value)} />
 		</div>
 		
 	);

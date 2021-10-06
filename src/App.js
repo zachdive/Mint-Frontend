@@ -18,6 +18,8 @@ import PrivateRoute from "./components/PrivateRoute";
 import FarmerView from "./components/FarmerView";
 import UserProfile from "./components/UserProfile";
 import CheckOut from "./components/CheckOut";
+import UserEdit from "./components/UserEdit";
+import Home from "./components/Home";
 
 function App() {
   const [loggedInUser, setCurrentLoggedInUser] = useState("");
@@ -36,52 +38,53 @@ function App() {
   }, []);
 
   return (
-    <div className="App container">
+    <div className="App">
       <ToastContainer />
       <LoggedUserProvider value={loggedInUser}>
       <NavBar loggedInUser={loggedInUser} setCurrentLoggedInUser={setCurrentLoggedInUser} />
       <Switch>
-      {loggedInUser.isFarmer ? (
-        <>
-        <Route exact path="/product/add" component={AddItem} />
-        <Route exact path="/products" component={ListProducts} />
-        {/* <Route 
-          path="/products/:id" 
-          render= {()=> {
-            return <ItemDetails loggedInUser={loggedInUser} />
-          }}
-        /> */}
+      <Route path="/home" component={Home} />
+        {loggedInUser.isFarmer ? (
+          <>
+          <Route exact path="/product/add" component={AddItem} />
+          <Route exact path="/products" component={ListProducts} />
+          {/* <Route 
+            path="/products/:id" 
+            render= {()=> {
+              return <ItemDetails loggedInUser={loggedInUser} />
+            }}
+          /> */}
 
-        <Route exact path="/products/:id" component={ItemDetails} />
-        <Route exact path="/user/:id" component={UserProfile} />
-        <Route exact path="/products/:id/edit" component={EditProject} />
-        <Route path="/signup" component={Signup} />
-        <Route
-          path="/Login"
-          render={() => {
-            return <Login setCurrentLoggedInUser={setCurrentLoggedInUser} />;
-          }}
-        />
-         {/* GOOGLE_LOGIN */}
-         <Route exact path="/login-google" render={
-            () => {
-              window.location.href = 
-              `${process.env.REACT_APP_SERVER_HOSTNAME}/auth/google`
-            }
-          }/>
-        <Route path="/cart" component={Cart} />
-        <Route path="/"/>
-        </>
-      ) : (
-        <>
-        <Route exact path="/products" component={ListProducts} />
-        <Route exact path="/products/add" component={AddItem} />
-        {/* <Route 
-          path="/products/:id" 
-          render= {()=> {
-            return <ItemDetails loggedInUser={loggedInUser} />
-          }}
-        /> */}
+          <Route exact path="/products/:id" component={ItemDetails} />
+          <Route exact path="/user/:id" component={UserProfile} />
+          <Route exact path="/user/:id/edit" component={UserEdit} />
+          <Route path="/signup" component={Signup} />
+          <Route
+            path="/Login"
+            render={() => {
+              return <Login setCurrentLoggedInUser={setCurrentLoggedInUser} />;
+            }}
+          />
+          {/* GOOGLE_LOGIN */}
+          <Route exact path="/login-google" render={
+              () => {
+                window.location.href = 
+                `${process.env.REACT_APP_SERVER_HOSTNAME}/auth/google`
+              }
+            }/>
+          <Route path="/cart" component={Cart} />
+          <Route path="/"/>
+          </>
+        ) : (
+          <>
+          <Route exact path="/products" component={ListProducts} />
+          <Route exact path="/products/add" component={AddItem} />
+          {/* <Route 
+            path="/products/:id" 
+            render= {()=> {
+              return <ItemDetails loggedInUser={loggedInUser} />
+            }}
+          /> */}
 
         <Route exact path="/products/:id" component={ItemDetails} />
         <Route exact path="/user/:id" component={UserProfile} />
