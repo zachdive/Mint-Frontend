@@ -76,15 +76,15 @@ const handleChange = async () => {
     <>
       <Nav variant="pills" activeKey="1">
         <Nav.Item>
-          <Nav.Link eventKey="1" href="/products">
-            Our Products
-          </Nav.Link>
+          <NavLink eventKey="1" to="/products" className="log-sign-logo">
+            <img src={logo} alt="logo" width="200px"/>
+          </NavLink>
         </Nav.Item>
-        <Nav.Item>
-        <li className='nav-item' style={{position: 'relative'}}>
+
+        <Nav.Item className="nav-search">
                             <form className="d-flex" onSubmit={handleFormSubmit}>
                                 <input className="form-control me-2" type="text" placeholder="Search for a product.." aria-label="Search" onKeyUp={handleChange} ref={searchRef} />
-                                <button className="btn btn-outline-dark" type='submit'>Search</button>
+                                <button className="btn btn-outline-dark" type='submit'></button>
                             </form>
                             <div className={(firstThreeFromSearch.length ? 'd-block' : 'd-none') + ' m-0 p-0 custom-width border bg-white'}
                                 style={{position: 'absolute', top: '50px', zIndex: '50'}}>
@@ -125,7 +125,6 @@ const handleChange = async () => {
                                     </div>
                                 </div>
                             </div>
-                        </li>
                         </Nav.Item>
                         
         
