@@ -1,3 +1,28 @@
+/* Styling elements
+Main green: #59B175
+Main white: rgb(243, 243, 243);
+Main black: #434343
+*/
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;1,200&display=swap');
+
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
+p{
+  font-family: 'Karla', sans-serif;
+  color: #434343;
+}
+
+ul{
+  list-style: none;
+}
+
 .App {
   text-align: center;
 }
@@ -40,22 +65,494 @@
 
 
 /* Signup Icons */
+.btn-text {
+  margin-left: 5px;
+}
 
-  .btn-text {
-    margin-left: 5px;
-  }
-
-  .google-icon,
-  .facebook-icon {
-    width: 30px;
-    height: 30px;
-  }
+.google-icon,
+.facebook-icon {
+  width: 30px;
+  height: 30px;
+}
 
 
-  .signup-provider{
-    cursor: pointer;
-  }
+.signup-provider{
+  cursor: pointer;
+}
 
-  /* Loading Indicator */
+.google-btn{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
 
+.mb-2 {
+  margin-top: 0.5rem;
+}
+
+/* Loading Indicator */
+
+  /*_Navbar_________________________________*/
+.log-sign-logo {
+  padding: 0.5rem 3rem 0.5rem 3rem;
+}
+
+.log-sign-nav{
+  display: flex;
+}
+
+.log-nav{
+  display: flex;
+  align-items: center;
+  margin: 0 3.2rem 0 3rem;
+}
+
+.log-nav a{
+  color: #59B175;
+  text-decoration: none;
+}
+
+.log-nav a:hover{
+  color: #428156;
+  text-decoration: none;
+}
+
+.nav {
+  justify-content: space-between;
+  margin-top: 0.2rem;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
   
+/*________________________________________*/
+
+/*__Landing_______________________________*/
+
+.lading-image {
+    background: url("../src/landing-image.png");
+    height: 85vh;
+    background-size:cover;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.lading-image div{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-left: 4rem;
+}
+
+.lading-image h1{
+  color: #59B175;
+  font-size: 5.5rem;
+  text-align: start;
+  padding-bottom: 0;
+}
+
+.lading-image p{
+  text-align: start;
+  color: rgb(243, 243, 243);
+  font-size: 1.2rem;
+  margin-bottom: 0;
+  padding-right: 9rem;
+}
+
+.lading-image a{
+  text-align: start;
+  color: #59B175;
+  font-size: 1.2rem;
+}
+
+.land-img-sign {
+  margin-top: 2rem;
+}
+
+/* Sec2 */
+
+.land-sec-2 {
+  background: url("../src/bg_iconfoods.png");
+  height: 60vh;
+  background-size:cover;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.land-sec-2 h2{
+  font-size: 3rem;
+  color: #59B175;
+  padding-top: 10vh;
+}
+
+.land-sec-2 p{
+  font-size: 1.4rem;
+  padding:1rem 5rem 2.5rem 5rem;
+  color: #434343;
+}
+
+/* Sec3 */
+
+.dummy-user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 7rem 3rem 1.5rem 3rem;
+}
+
+.dummy-user h3{
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.dummy-user img{
+  border-radius: 10rem;
+  width: 2rem; /* width of container */
+  height: 2rem; /* height of container */
+  object-fit: cover;
+} 
+
+.dummy-user span{
+  border-radius: 10rem;
+  width: 2rem; /* width of container */
+  height: 2rem; /* height of container */
+}
+
+.land-sec-3{
+  display: flex;
+  flex-direction: column;
+}
+
+.dummy-user-goods{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dummy-user-goods span{
+  display: flex;
+}
+
+.dummy-user-goods-item{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 7rem;
+}
+
+.dummy-user-goods-item span{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dummy-user-goods-item h5{
+  padding: 0.2rem 0 0.2rem 1rem;
+  margin: 0;
+  font-weight: 400;
+}
+
+.dummy-user-goods-item p{
+  padding: 0.2rem 1rem 0.2rem 0;
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.dummy-user-goods-img {
+  width: 18rem;
+  height: 12rem;
+  background-size:cover;
+  background-position: 100% 100%;
+}
+
+.dummy-user-img1 {
+  background-image: url("/src/potatos.jpeg");
+}
+
+.dummy-user-img2 {
+  background-image: url("/src/tomatos.jpeg");
+}
+
+.dummy-user-img3 {
+  background-image: url("/src/carrots.jpg");
+}
+
+.dummy-user-img4 {
+  background-image: url("/src/strawberries.jpg");
+}
+
+.row-land-sec-3 {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+/* Sec4 */
+.land-sec-4 {
+  display: flex;
+  padding: 6rem 0 6rem 0;
+}
+
+.land-sec-4-img {
+  width: 34rem;
+  height: 30rem;
+  background-image: url("/src/alice_truman.jpg");
+  background-size:cover;
+  background-position: 50% 100%;
+}
+
+.land-sec-4-content{
+  display: flex !important;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: start;
+  padding-left: 3rem;
+  padding-top: 1.5rem;
+}
+.land-sec-4-content h3{
+  font-size: 4rem;
+  font-weight: 400;
+  color: #434343;
+  font-family: 'Karla', sans-serif;
+  margin: 0;
+}
+
+.land-sec-4-content h4{
+  font-size: 2rem;
+  font-weight: 400;
+  color: #59B175;
+  font-family: 'Karla', sans-serif;
+  margin-bottom: 2.5rem;
+}
+
+.land-sec-4-content p{
+  font-size: 1.7rem;
+  width: 35vw;
+}
+
+.land-sec-4-content a{
+  font-size: 1.2rem;
+  color: #59B175;
+}
+
+.land-sec-4-content a:hover{
+  color: #428156;
+  text-decoration: none;
+}
+
+.row-land-sec-4{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  background-color: #59b17531;
+}
+
+/* Sec5 */
+
+.land-sec-5{
+  display: flex;
+  flex-direction: row;
+  margin: 6rem !important;
+  justify-content: space-between;
+}
+
+.land-sec-text{
+  text-align: start;
+  width: 55vw;
+}
+
+.land-sec-text h2{
+  font-size: 3.7rem;
+  font-family: 'Karla', sans-serif;
+  font-weight: 400;
+  color: #434343;
+}
+
+.land-sec-text p{
+  margin-top: 1.5rem;
+  font-size: 1.3rem;
+  font-family: 'Karla', sans-serif;
+  font-weight: 400;
+  color: #434343;
+}
+
+.land-sec-text h2 strong{
+  color: #59B175;
+  font-weight: 600;
+}
+
+.land-sec-5-buttons{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+/*________________________________________*/
+
+/*_SignUp provider________________________*/
+.signup-provider a{
+  color: #858585;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.signup-provider a:hover{
+  color: #434343;
+}
+
+.signup-provider span{
+  margin-left: 1.5rem;
+}
+/*________________________________________*/
+
+/*_SignUp_________________________________*/
+.signup-user{
+  display: flex;
+}
+
+.signup-user-left-container{
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  padding: 5rem 6rem 5rem 6rem;
+}
+
+.signup-user-left-container h2{
+  color: #59B175;
+  font-size: 4rem;
+  width: 25vw;
+  font-family: 'Karla', sans-serif;
+  font-weight: 700;
+  padding-bottom: 2rem;
+  line-height: 3.7rem;
+}
+
+.signup-user-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-user-input {
+  width: 100%;
+  border-radius: 0.3rem;
+  border-style: solid;
+  border: 1px solid #59B175;
+}
+
+.signup-user-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.signup-user-box label{
+  color:#59B175;
+}
+
+.signup-user-toggle{
+  display:flex;
+  align-items: center;
+  padding-bottom: 1rem;
+}
+
+.signup-user-toggle .toggle{
+  color:#59B175;
+  font-size: 1.5rem;
+  font-family: 'Karla', sans-serif;
+  font-weight: 700;
+}
+
+.signup-user-buttons{
+  display:flex;
+  align-items: center;
+  padding-bottom: 1rem;
+  padding-top: 3.5rem;
+  justify-content: space-between;
+}
+
+.signup-user-buttons button{
+  border-radius: 0.2rem;
+  width: 10rem;
+}
+
+.signup-user-buttons .signup-provider{
+  margin-right: 5rem;
+}
+
+.signup-user-right-container{
+  width: 100%;
+  height: 100vh;
+  background-image: url("/src/bg_iconfoods_green.png");
+  background-size:cover;
+  background-position: 50% 100%;
+}
+
+.r-farm-h2{
+  width: 30vw !important;
+}
+
+.r-farm{
+  background-color: #59b17536;
+}
+
+.r-farm-buttons{
+  padding-top: 2rem;
+}
+
+/*________________________________________*/
+
+/*_LogIn__________________________________*/
+
+.login-container{
+  background-color: #59b17536;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.login-container form{
+  display: flex;
+  flex-direction: column;
+  width: 35vw;
+  text-align: start;
+  margin-top: 25vh;
+}
+
+.login-container form label{
+  color:#59B175;
+}
+
+.login-container form p{
+  margin-top: 0.5rem;
+}
+
+.login-container form span a{
+  margin-right: 1rem;
+  margin-left: 3rem;
+  padding-bottom: 0;
+}
+
+.login-container form span{
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.login-container form span button{
+  width: 7rem;
+}
+
+.login-container form h2{
+  color: #59B175;
+  font-size: 4rem;
+  width: 25vw;
+  font-family: 'Karla', sans-serif;
+  font-weight: 700;
+  padding-bottom: 1rem;
+  line-height: 3.7rem;
+}
+
+/*________________________________________*/

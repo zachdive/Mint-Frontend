@@ -7,6 +7,8 @@ import { MdShoppingCart } from "react-icons/md";
 import { IconContext } from 'react-icons'
 import {toast} from 'react-toastify';
 import { useHistory } from "react-router-dom";
+import logo from "../project3-04.jpg";
+import Button from 'react-bootstrap/Button'
 
 
 function NavBar({ loggedInUser, setCurrentLoggedInUser }) {
@@ -148,20 +150,22 @@ const handleChange = async () => {
     <>
     <Nav variant="pills" activeKey="1">
       <Nav.Item>
-        <Nav.Link eventKey="1" href="/products">
-          Our Products
-        </Nav.Link>
+        <NavLink eventKey="1" to="/home" className="log-sign-logo">
+          <img src={logo} alt="logo" width="200px"/>
+        </NavLink>
       </Nav.Item>
+      <div className="log-sign-nav">
       <Nav.Item>
         <Nav.Link title="Item" href="/signup">
-          Signup
+        <Button variant="success">Sign up</Button>{' '}
         </Nav.Link>
       </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey="3" href="/login">
+      <Nav.Item className="log-nav">
+        <NavLink eventKey="3" to="/login">
           Login
-        </Nav.Link>
+        </NavLink>
       </Nav.Item>
+      </div>
       {/* <NavDropdown title="Dropdown" id="nav-dropdown">
       <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
       <NavDropdown.Item eventKey="4.2">Another action</NavDropdown.Item>

@@ -4,6 +4,7 @@ import { useHistory, NavLink } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { LoggedUserConsumer } from "../context/loggedUser";
+import Button from 'react-bootstrap/Button'
 
 
 function Login({ setCurrentLoggedInUser }) {
@@ -42,30 +43,31 @@ function Login({ setCurrentLoggedInUser }) {
   };
 
   return (
-    <>
-   <SignupProvider />
+    <div className="login-container">
+        <form onSubmit={handleFormSubmit}>
+          <h2>Login</h2>
+          <label>email</label>
+          <input
+            type="text"
+            onChange={(e) => setUsername(e.target.value)}
+            value={username}
+            className="signup-user-input"
+          />
 
-      <h2>Login</h2>
-
-      <form onSubmit={handleFormSubmit}>
-        <label>Email</label>
-        <input
-          type="text"
-          onChange={(e) => setUsername(e.target.value)}
-          value={username}
-        />
-
-        <label>Password</label>
-        <input
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-        />
-
-        <button type="submit">Login</button>
-      </form>
-      Don't have an account? Signup <NavLink to="/signup">here!</NavLink>
-    </>
+          <label>password</label>
+          <input
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            className="signup-user-input"
+          />
+          <p>Don't have an account? Signup <NavLink to="/signup">here!</NavLink></p>
+          <span>
+          <Button type="submit" variant="success">Enter</Button>{' '}
+            <SignupProvider />
+          </span>
+        </form>
+    </div>
   );
 }
 

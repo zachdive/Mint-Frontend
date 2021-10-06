@@ -4,6 +4,7 @@ import { useHistory, NavLink } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import SignupProvider from "./SignupProvider";
+import Button from 'react-bootstrap/Button'
 
 function Signup() {
   const [username, setUsername] = useState("");
@@ -11,6 +12,9 @@ function Signup() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [zip, setZip] = useState("");
   const [isFarmer, setIsFarmer] = useState(false);
   
   
@@ -24,6 +28,9 @@ function Signup() {
       firstName,
       lastName,
       phoneNumber,
+      address,
+      city,
+      zip,
       isFarmer,
     };
     await axios.post(`${process.env.REACT_APP_SERVER_HOSTNAME}/signup`, body);
@@ -31,62 +38,189 @@ function Signup() {
     history.push("/login");
   };
 
-  return (
-    <>
-  
-  <SignupProvider />
-      
-      <h2>Signup</h2>
-      <form onSubmit={handleFormSubmit}>
-        <label>Email</label>
-        <input
-          type="text"
-          onChange={(e) => setUsername(e.target.value)}
-          value={username}
-        />
+  return isFarmer ? (
+    <div className="signup-user">
+      <div className="signup-user-right-container">
+      </div>
+      <div className="signup-user-left-container col-md-6 r-farm">    
+        <h2 className="r-farm-h2">Register has a farmer!</h2>
+        <form onSubmit={handleFormSubmit} className="signup-user-form">
+          <span className="signup-user-toggle">
+            <label className="col-md-9 toggle">Do you want to sell your goods?</label>
+            <input
+              type="checkbox"
+              checked={isFarmer}
+              onChange={() => setIsFarmer(!isFarmer)}
+              className="signup-user-input"
+            />
+          </span>
 
-        <label>Password</label>
-        <input
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-        />
+          <span className="row">
+            <span className="signup-user-box col-md-6">
+              <label>first Name</label>
+              <input
+                type="text"
+                onChange={(e) => setFirstName(e.target.value)}
+                value={firstName}
+                className="signup-user-input"
+              />
+            </span>
+            <span className="signup-user-box col-md-6">
+              <label>last Name</label>
+              <input
+                type="text"
+                onChange={(e) => setLastName(e.target.value)}
+                value={lastName}
+                className="signup-user-input"
+              />
+            </span>
+          </span>
 
-       <label>First Name</label>
-        <input
-          type="text"
-          onChange={(e) => setFirstName(e.target.value)}
-          value={firstName}
-        />
+          <span className="signup-user-box">
+            <label>email</label>
+            <input
+              type="text"
+              onChange={(e) => setUsername(e.target.value)}
+              value={username}
+              className="signup-user-input"
+            />
+          </span>
 
-        <label>Last Name</label>
-        <input
-          type="text"
-          onChange={(e) => setLastName(e.target.value)}
-          value={lastName}
-        />
+          <span className="signup-user-box">
+            <label>password</label>
+            <input
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              className="signup-user-input"
+            />
+          </span>  
 
-        <label>Phone Number</label>
-        <input
-          type="text"
-          onChange={(e) => setPhoneNumber(e.target.value)}
-          value={phoneNumber}
-        />
+          <span className="signup-user-box">
+            <label>address</label>
+            <input
+              type="text"
+              onChange={(e) => setAddress(e.target.value)}
+              value={address}
+              className="signup-user-input"
+            />
+          </span>  
 
-        <label>Are you a farmer?</label>
-        <input
-          type="checkbox"
-          checked={isFarmer}
-          onChange={() => setIsFarmer(!isFarmer)}
-          
-        />
+          <span className="row">
+            <span className="signup-user-box col-md-6">
+              <label>zip</label>
+              <input
+                type="text"
+                onChange={(e) => setZip(e.target.value)}
+                value={zip}
+                className="signup-user-input"
+              />
+            </span>
+            <span className="signup-user-box col-md-6">
+              <label>city</label>
+              <input
+                type="text"
+                onChange={(e) => setCity(e.target.value)}
+                value={city}
+                className="signup-user-input"
+              />
+            </span>
+          </span>     
 
+          <span className="signup-user-box">
+            <label>phone number</label>
+            <input
+              type="text"
+              onChange={(e) => setPhoneNumber(e.target.value)}
+              value={phoneNumber}
+              className="signup-user-input"
+            />
+          </span>
 
+          <span className="signup-user-buttons r-farm-buttons">
+            <Button type="submit" variant="success" size="lg">Sign up</Button>{' '}
+            <SignupProvider /> 
+          </span>
 
-        <button type="submit">Signup</button>
+        </form>
+      </div>
+    </div>
+  ) : (
+    <div className="signup-user">
+    <div className="signup-user-left-container col-md-6">    
+      <h2>Get in with the goods!</h2>
+      <form onSubmit={handleFormSubmit} className="signup-user-form">
+        <span className="signup-user-toggle">
+          <label className="col-md-9 toggle">Do you want to sell your goods?</label>
+          <input
+            type="checkbox"
+            checked={isFarmer}
+            onChange={() => setIsFarmer(!isFarmer)}
+            className="signup-user-input"
+          />
+        </span>
+
+        <span className="signup-user-box">
+          <label>email</label>
+          <input
+            type="text"
+            onChange={(e) => setUsername(e.target.value)}
+            value={username}
+            className="signup-user-input"
+          />
+        </span>
+
+        <span className="signup-user-box">
+          <label>password</label>
+          <input
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            className="signup-user-input"
+          />
+        </span>
+
+        <span className="row">
+          <span className="signup-user-box col-md-6">
+            <label>first Name</label>
+            <input
+              type="text"
+              onChange={(e) => setFirstName(e.target.value)}
+              value={firstName}
+              className="signup-user-input"
+            />
+          </span>
+          <span className="signup-user-box col-md-6">
+            <label>last Name</label>
+            <input
+              type="text"
+              onChange={(e) => setLastName(e.target.value)}
+              value={lastName}
+              className="signup-user-input"
+            />
+          </span>
+        </span>
+
+        <span className="signup-user-box">
+          <label>phone number</label>
+          <input
+            type="text"
+            onChange={(e) => setPhoneNumber(e.target.value)}
+            value={phoneNumber}
+            className="signup-user-input"
+          />
+        </span>
+
+        <span className="signup-user-buttons">
+          <Button type="submit" variant="success" size="lg">Sign up</Button>{' '}
+          <SignupProvider /> 
+        </span>
+
       </form>
-      Already have an account? Login <NavLink to="/login">here</NavLink>
-    </>
+    </div>
+    <div className="signup-user-right-container">
+    </div>
+  </div>
   );
 }
 
