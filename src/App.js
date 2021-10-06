@@ -17,6 +17,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import PrivateRoute from "./components/PrivateRoute";
 import FarmerView from "./components/FarmerView";
 import UserProfile from "./components/UserProfile";
+import CheckOut from "./components/CheckOut";
 
 function App() {
   const [loggedInUser, setCurrentLoggedInUser] = useState("");
@@ -99,7 +100,8 @@ function App() {
               `${process.env.REACT_APP_SERVER_HOSTNAME}/auth/google`
             }
           }/>
-        <Route path="/cart" component={Cart} />
+        <Route exact path="/cart" component={Cart} />
+        <Route path="/cart/checkout" component={CheckOut} />
         <Route path="/"/>
         </>
         )}
