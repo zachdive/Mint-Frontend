@@ -11,6 +11,7 @@ import logo from "../project3-04.jpg";
 import Button from 'react-bootstrap/Button'
 
 
+
 function NavBar({ loggedInUser, setCurrentLoggedInUser }) {
   const [loading, setLoading] = React.useState(false);
   const [products, setProducts] = useState([]);
