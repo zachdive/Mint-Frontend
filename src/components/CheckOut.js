@@ -44,7 +44,7 @@ function CheckOut() {
       setTotal(userSubTotal + user.data.deliveryFee);
     }
     getUser();
-  }, [stepTwo]);
+  }, [stepTwo === true]);
 
 
   const handleFinishPurchase = async () => {
@@ -69,7 +69,7 @@ function CheckOut() {
     };
 
  
-      await axios.put(`http://localhost:5000/orders`, order, {withCredentials: true});
+      await axios.put(`${process.env.REACT_APP_SERVER_HOSTNAME}/orders`, order, {withCredentials: true});
 
       toast.success("Purchase Sucess!");
       history.push("/products");
