@@ -3,6 +3,8 @@ import axios from "axios";
 import { useHistory, NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
 import { LoggedUserConsumer } from "../context/loggedUser";
+import { BsBoxSeam } from "react-icons/bs";
+import { IconContext } from 'react-icons';
 
 function ItemDetails({ match }) {
   const loggedInUser = useContext(LoggedUserConsumer);
@@ -53,11 +55,14 @@ function ItemDetails({ match }) {
 
   return (
     <>
+    <IconContext.Provider value={{color: '#59B175', size: '2.5rem' }}>
+      <BsBoxSeam />
+    </IconContext.Provider>
       <h2>{item.name}</h2>
       <h4>{item.category}</h4>
-      <h5>{item.quantity_available}</h5>
-      <h5>{item.price}</h5>
-      <h6>{item.expire_in}</h6>
+      <h5>Stock: {item.quantity_available}</h5>
+      <h5>{item.price}€</h5>
+      {item.expire_in === true && <h6>{item.expire_in}</h6>}
       <p>{item.description}</p>
       {item.imageUrl && <img src={item.imageUrl} alt="product" />}
       

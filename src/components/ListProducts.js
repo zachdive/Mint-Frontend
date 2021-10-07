@@ -5,6 +5,9 @@ import Search from "./SearchBar";
 import LoadingIndicator from "./LoadingIndicator";
 import RadioBox from "./RadioBox";
 import { categories } from "./Categories";
+//
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 function ListProducts() {
   const [products, setProducts] = useState([]);
@@ -16,6 +19,37 @@ function ListProducts() {
 
   const [error, setError] = useState(false);
   const [filteredResults, setFilteredResults] = useState([]);
+
+
+  //Carousel________________
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5,
+      partialVisibilityGutter: 40, // this is needed to tell the amount of px that should be visible.
+      slidesToSlide: 3
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+      partialVisibilityGutter: 40, // this is needed to tell the amount of px that should be visible.
+      slidesToSlide: 3
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+      partialVisibilityGutter: 30, // this is needed to tell the amount of px that should be visible.
+      slidesToSlide: 2
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+      partialVisibilityGutter: 30, // this is needed to tell the amount of px that should be visible.
+      slidesToSlide: 1
+    }
+  };
+  //__________________________
 
   
 
@@ -98,8 +132,11 @@ function ListProducts() {
       originalUsers.forEach((filteredUser) => {
         filteredUser.farmItems.forEach((farmItem) => {
           if (farmItem.category === myFilters.filters.category[0]) {
+
             filteredUsersByCategory.push(filteredUser);
+            console.log(filteredUser);
           }
+          console.log(filteredUsersByCategory);
           setFilteredUsers(filteredUsersByCategory);
         });
       });
@@ -110,64 +147,70 @@ function ListProducts() {
   };
 
   return (
-    <>
-      <LoadingIndicator />
-      <h4>Filter By Category</h4>
-      <div>
-        <RadioBox
-          categories={categories}
-          handleFilters={(filters) => handleFilters(filters, "category")}
-        />
+    <div className="products-list-main">
+      <div className="products-list-filters">
+        <LoadingIndicator />
+        <h4>Categories</h4>
+        <div>
+          <RadioBox
+            categories={categories}
+            handleFilters={(filters) => handleFilters(filters, "category")}
+          />
+        </div>
+        <Search searchInput={searchInput} searchUserFilter={searchUserFilter}/>
       </div>
 
-      <div className="Mainfeed">
-        <Search searchInput={searchInput} searchUserFilter={searchUserFilter} />
-        <ul>
-          {/* {filteredProducts.map((product) => {
-        return (
-          <li key={product._id} className="product-card">
-            <NavLink to={`/products/${product._id}`}><img src={product.imageUrl} width = "50px"  height = "50px"/></NavLink>
-            <NavLink to={`/products/${product._id}`}>{product.name}</NavLink>
-            <p>{product.category}</p>
-            <p>{product.quantity_available}</p>
-            <p>{product.price}€</p>
-          </li>
-        );
-      })} */}
-
-          {/*  ------------------------------------------------------------ */}
-
-          {filteredUsers.map((user) => {
+        <div className="products-list-container">
+        {filteredUsers.map((user) => {
             return (
-              <div>
+              <div className="products-list-row">
+              <div className="products-list-farmercard">
+                <img src={user.imageUrl} alt="farm img" className="products-list-farmname"/>
                 <h1>{user.firstName}</h1>
+              </div>
+              <Carousel
+              swipeable={true}
+              draggable={true}
+              partialVisible={true}
+              showDots={false}
+              responsive={responsive}
+              ssr={true} // means to render carousel on server-side.
+              infinite={true}
+              keyBoardControl={true}
+              customTransition="all .5"
+              transitionDuration={500}
+              containerClass="carousel-container"
+              removeArrowOnDeviceType={["tablet", "mobile"]}
+              // deviceType={this.props.deviceType}
+              dotListClass="custom-dot-list-style"
+              itemClass="carousel-item-padding-40-px">
+
                 {user.farmItems.map((item, index) => {
                   if (item.length === 0) {
                   } else {
                     return (
-                      <li key={index} className="product-card">
+                      <div key={index} className="product-card">
                         <NavLink to={`/products/${item._id}`}>
-                          <img src={item.imageUrl} width="50px" height="50px" />
+                          <img src={item.imageUrl} width="50px" height="50px" className="product-card-img" alt={item.name}/>
                         </NavLink>
-                        <p>{item.name}</p>
-                        <p>{item.category}</p>
-                        <br />
-                        <NavLink to={`/products/${item._id}`}>
-                          View details
-                        </NavLink>
-                        <p>{item.price}€</p>
-                      </li>
+                        <div className="product-card-text">
+                          <span>
+                            <h5>{item.name}</h5>
+                            <NavLink to={`/products/${item._id}`}>
+                              View details
+                            </NavLink>
+                          </span>
+                          <p>{item.price}€</p>
+                        </div>
+                      </div>
                     );
                   }
                 })}
-              </div>
-            );
+              </Carousel>
+            </div>);
           })}
-
-          {/* ------------------------------------------------------------ */}
-        </ul>
-      </div>
-    </>
+        </div>
+    </div>
   );
 }
 

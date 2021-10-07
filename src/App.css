@@ -609,3 +609,109 @@ ul{
 }
 
 /*________________________________________*/
+
+/*Products_list_______*/
+.products-list-main{
+  display: flex;
+  margin: 3rem 4rem 3rem 4rem;
+}
+
+.products-list-container{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  text-align: start;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+.products-list-filters{
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+
+.products-list-filters h4{
+  font-size: 1.3rem;
+  font-family: 'Karla', sans-serif;
+  color: #59B175;
+  margin-left: 0.3rem;
+}
+
+.form-check-label{
+  color: #59B175;
+  margin-left: 0.5rem;
+}
+
+.form-check-input{
+  border-color: #59B175 !important;
+  margin-left: 0.3rem;
+}
+
+.products-list-filter-farm{
+  border: 1px solid #59B175 !important;
+  border-radius: 5rem;
+  padding-left: 0.8rem;
+  margin-top: 1rem;
+}
+
+.product-card-img{
+  width: 20rem; /* width of container */
+  height: 10rem; /* height of container */
+  object-fit: cover;
+  animation: all 1s ease-in;
+}
+
+.products-list-farmname{
+  border-radius: 10rem;
+  width: 2.5rem; /* width of container */
+  height: 2.5rem; /* height of container */
+  object-fit: cover;
+}
+
+.products-list-farmercard{
+  display: flex;
+}
+
+.products-list-farmercard h1{
+  font-size: 2rem;
+  padding-left: 1rem;
+}
+
+.product-card-text{
+  display: flex;
+  justify-content: space-between;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.product-card-text span{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.product-card-text span h5{
+  font-size: 1.2rem;
+  font-family: 'Karla', sans-serif;
+
+}
+
+.product-card-text p{
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.product-card-text a{
+  font-size: 0.8rem;
+  color: #858585;
+}
+
+.product-card-text a:hover{
+  color: #434343;
+}
+
+.products-list-row{
+  border-bottom: 1px solid #59B175;
+  padding: 2rem 0 1rem 0;
+}
