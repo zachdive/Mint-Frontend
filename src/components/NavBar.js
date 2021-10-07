@@ -3,7 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import axios from "axios";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { MdShoppingCart } from "react-icons/md";
+import { IoMdCart } from "react-icons/io";
 import { IconContext } from 'react-icons'
 import {toast} from 'react-toastify';
 import { useHistory } from "react-router-dom";
@@ -83,7 +83,7 @@ const handleChange = async () => {
 
         <Nav.Item className="nav-search">
                             <form className="d-flex" onSubmit={handleFormSubmit}>
-                                <input className="form-control me-2" type="text" placeholder="Search for a product.." aria-label="Search" onKeyUp={handleChange} ref={searchRef} />
+                                <input className="form-control me-2 nav-search-input" type="text" placeholder="Search for a product.." aria-label="Search" onKeyUp={handleChange} ref={searchRef} />
                                 <button className="btn btn-outline-dark" type='submit'></button>
                             </form>
                             <div className={(firstThreeFromSearch.length ? 'd-block' : 'd-none') + ' m-0 p-0 custom-width border bg-white'}
@@ -126,24 +126,27 @@ const handleChange = async () => {
                                 </div>
                             </div>
                         </Nav.Item>
-                        
-        
-        <NavDropdown title= {`${loggedInUser.firstName} ${loggedInUser.lastName}`} id="nav-dropdown">
-          <NavDropdown.Item eventKey="4.1" href={`/user/${loggedInUser._id}`}>My profile</NavDropdown.Item>
-          <NavDropdown.Item eventKey="4.2" href="/orders">Orders</NavDropdown.Item>
-          {loggedInUser.isFarmer === true && <NavDropdown.Item eventKey="4.2" href="/product/add">Add a product</NavDropdown.Item>}
-          <NavDropdown.Divider />
-          <NavDropdown.Item eventKey="4.4">
-            <button onClick={logoutUser}>Logout</button>
-          </NavDropdown.Item>
-        </NavDropdown>
-        <Nav.Item>
-         
-          <IconContext.Provider value={{color: 'black', size: '3rem' }}>
-                                        <NavLink  eventKey="3" to='/cart'><MdShoppingCart /></NavLink>
-          </IconContext.Provider>
-         
-        </Nav.Item>
+        <div className="nav-right">
+          <div className="nav-user-container">                
+            <img src={loggedInUser.imageUrl} width="50rem" alt="user img" className="nav-usr-img"/>
+            <NavDropdown title= {`${loggedInUser.firstName} ${loggedInUser.lastName}`} id="nav-dropdown">
+              <NavDropdown.Item eventKey="4.1" href={`/user/${loggedInUser._id}`}>My profile</NavDropdown.Item>
+              <NavDropdown.Item eventKey="4.2" href="/orders">Orders</NavDropdown.Item>
+              {loggedInUser.isFarmer === true && <NavDropdown.Item eventKey="4.2" href="/product/add">Add a product</NavDropdown.Item>}
+              <NavDropdown.Divider />
+              <NavDropdown.Item eventKey="4.4">
+                <button onClick={logoutUser} className="logout">Logout</button>
+              </NavDropdown.Item>
+            </NavDropdown>
+          </div>
+          <Nav.Item>
+          
+            <IconContext.Provider value={{color: '#59B175', size: '2.5rem' }}>
+              <NavLink  eventKey="3" to='/cart'><IoMdCart /></NavLink>
+            </IconContext.Provider>
+          
+          </Nav.Item>
+        </div>
       </Nav>
     </>
   ) : (
