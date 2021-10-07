@@ -6,8 +6,8 @@ import LoadingIndicator from "./LoadingIndicator";
 import RadioBox from "./RadioBox";
 import { categories } from "./Categories";
 //
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 function ListProducts() {
   const [products, setProducts] = useState([]);
@@ -20,7 +20,6 @@ function ListProducts() {
   const [error, setError] = useState(false);
   const [filteredResults, setFilteredResults] = useState([]);
 
-
   //Carousel________________
   const responsive = {
     superLargeDesktop: {
@@ -28,30 +27,28 @@ function ListProducts() {
       breakpoint: { max: 4000, min: 3000 },
       items: 5,
       partialVisibilityGutter: 40, // this is needed to tell the amount of px that should be visible.
-      slidesToSlide: 3
+      slidesToSlide: 3,
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 3,
       partialVisibilityGutter: 40, // this is needed to tell the amount of px that should be visible.
-      slidesToSlide: 3
+      slidesToSlide: 3,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
       items: 2,
       partialVisibilityGutter: 30, // this is needed to tell the amount of px that should be visible.
-      slidesToSlide: 2
+      slidesToSlide: 2,
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
       items: 1,
       partialVisibilityGutter: 30, // this is needed to tell the amount of px that should be visible.
-      slidesToSlide: 1
-    }
+      slidesToSlide: 1,
+    },
   };
   //__________________________
-
-  
 
   const handleCategory = (value) => {
     const data = categories;
@@ -129,19 +126,27 @@ function ListProducts() {
       setFilteredUsers(originalUsers);
       console.log(originalUsers);
     } else {
-      const _originalUsers = JSON.parse(JSON.stringify(originalUsers))
+      const _originalUsers = JSON.parse(JSON.stringify(originalUsers));
 
       _originalUsers.forEach((filteredUser) => {
         filteredFarmItems = [];
         filteredUser.farmItems.forEach((farmItem) => {
           if (farmItem.category === myFilters.filters.category[0]) {
             filteredFarmItems.push(farmItem);
-            filteredUsersByCategory.push(filteredUser);
+            if (
+              !filteredUsersByCategory.some(
+                (user) => user._id === filteredUser._id
+              )
+            ) {
+              filteredUsersByCategory.push(filteredUser);
+            }
+
             console.log(filteredUser);
           }
         });
         filteredUser.farmItems = filteredFarmItems;
       });
+      console.log(filteredUsersByCategory);
       setFilteredUsers(filteredUsersByCategory);
     }
 
@@ -160,41 +165,51 @@ function ListProducts() {
             handleFilters={(filters) => handleFilters(filters, "category")}
           />
         </div>
-        <Search searchInput={searchInput} searchUserFilter={searchUserFilter}/>
+        <Search searchInput={searchInput} searchUserFilter={searchUserFilter} />
       </div>
 
-        <div className="products-list-container">
+      <div className="products-list-container">
         {filteredUsers.map((user) => {
-            return (
-              <div className="products-list-row">
+          return (
+            <div className="products-list-row">
               <div className="products-list-farmercard">
-                <img src={user.imageUrl} alt="farm img" className="products-list-farmname"/>
+                <img
+                  src={user.imageUrl}
+                  alt="farm img"
+                  className="products-list-farmname"
+                />
                 <h1>{user.firstName}</h1>
               </div>
               <Carousel
-              swipeable={true}
-              draggable={true}
-              partialVisible={true}
-              showDots={false}
-              responsive={responsive}
-              ssr={true} // means to render carousel on server-side.
-              infinite={true}
-              keyBoardControl={true}
-              customTransition="all .5"
-              transitionDuration={500}
-              containerClass="carousel-container"
-              removeArrowOnDeviceType={["tablet", "mobile"]}
-              // deviceType={this.props.deviceType}
-              dotListClass="custom-dot-list-style"
-              itemClass="carousel-item-padding-40-px">
-
+                swipeable={true}
+                draggable={true}
+                partialVisible={true}
+                showDots={false}
+                responsive={responsive}
+                ssr={true} // means to render carousel on server-side.
+                infinite={true}
+                keyBoardControl={true}
+                customTransition="all .5"
+                transitionDuration={500}
+                containerClass="carousel-container"
+                removeArrowOnDeviceType={["tablet", "mobile"]}
+                // deviceType={this.props.deviceType}
+                dotListClass="custom-dot-list-style"
+                itemClass="carousel-item-padding-40-px"
+              >
                 {user.farmItems.map((item, index) => {
                   if (item.length === 0) {
                   } else {
                     return (
                       <div key={index} className="product-card">
                         <NavLink to={`/products/${item._id}`}>
-                          <img src={item.imageUrl} width="50px" height="50px" className="product-card-img" alt={item.name}/>
+                          <img
+                            src={item.imageUrl}
+                            width="50px"
+                            height="50px"
+                            className="product-card-img"
+                            alt={item.name}
+                          />
                         </NavLink>
                         <div className="product-card-text">
                           <span>
@@ -210,9 +225,10 @@ function ListProducts() {
                   }
                 })}
               </Carousel>
-            </div>);
-          })}
-        </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
