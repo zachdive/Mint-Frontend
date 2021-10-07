@@ -180,7 +180,13 @@ ul{
   border: 1px solid #59B175 !important;
 }
   
-/*________________________________________*/
+/* Search Dropdown */
+
+.btn-sm {
+
+  background-color: #428156 !important;
+  border-color: #428156 !important;
+}
 
 /*__Landing_______________________________*/
 
