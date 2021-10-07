@@ -44,7 +44,7 @@ function CheckOut() {
       setTotal(userSubTotal + user.data.deliveryFee);
     }
     getUser();
-  }, []);
+  }, [stepTwo]);
 
 
   const handleFinishPurchase = async () => {
