@@ -19,6 +19,7 @@ import FarmerView from "./components/FarmerView";
 import UserProfile from "./components/UserProfile";
 import UserEdit from "./components/UserEdit";
 import Home from "./components/Home";
+import Footer from "./components/Footer";
 
 function App() {
   const [loggedInUser, setCurrentLoggedInUser] = useState("");
@@ -108,6 +109,8 @@ function App() {
           )}
       </Switch>
       </LoggedUserProvider>
+      <Footer/>
+
     </div>
   );
 }

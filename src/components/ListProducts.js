@@ -17,8 +17,6 @@ function ListProducts() {
   const [error, setError] = useState(false);
   const [filteredResults, setFilteredResults] = useState([]);
 
-  
-
   const handleCategory = (value) => {
     const data = categories;
     let array = [];
@@ -87,22 +85,27 @@ function ListProducts() {
       let categoryValues = handleCategory(filters);
       newFilters.filters[filterBy] = categoryValues;
     }
-    
+
     let filteredUsersByCategory = [];
+    let filteredFarmItems = [];
     if (myFilters.filters.category[0] === "Any") {
       // setOriginalUsers(users)
       setFilteredUsers(originalUsers);
       console.log(originalUsers);
-    
     } else {
-      originalUsers.forEach((filteredUser) => {
+      const _originalUsers = JSON.parse(JSON.stringify(originalUsers))
+
+      _originalUsers.forEach((filteredUser) => {
+        filteredFarmItems = [];
         filteredUser.farmItems.forEach((farmItem) => {
           if (farmItem.category === myFilters.filters.category[0]) {
+            filteredFarmItems.push(farmItem);
             filteredUsersByCategory.push(filteredUser);
           }
-          setFilteredUsers(filteredUsersByCategory);
         });
+        filteredUser.farmItems = filteredFarmItems;
       });
+      setFilteredUsers(filteredUsersByCategory);
     }
 
     // setFilteredUsers(filteredUsersByCategory);
@@ -123,20 +126,6 @@ function ListProducts() {
       <div className="Mainfeed">
         <Search searchInput={searchInput} searchUserFilter={searchUserFilter} />
         <ul>
-          {/* {filteredProducts.map((product) => {
-        return (
-          <li key={product._id} className="product-card">
-            <NavLink to={`/products/${product._id}`}><img src={product.imageUrl} width = "50px"  height = "50px"/></NavLink>
-            <NavLink to={`/products/${product._id}`}>{product.name}</NavLink>
-            <p>{product.category}</p>
-            <p>{product.quantity_available}</p>
-            <p>{product.price}€</p>
-          </li>
-        );
-      })} */}
-
-          {/*  ------------------------------------------------------------ */}
-
           {filteredUsers.map((user) => {
             return (
               <div>
