@@ -121,25 +121,28 @@ function ListProducts() {
       let categoryValues = handleCategory(filters);
       newFilters.filters[filterBy] = categoryValues;
     }
-    
+
     let filteredUsersByCategory = [];
+    let filteredFarmItems = [];
     if (myFilters.filters.category[0] === "Any") {
       // setOriginalUsers(users)
       setFilteredUsers(originalUsers);
       console.log(originalUsers);
-    
     } else {
-      originalUsers.forEach((filteredUser) => {
+      const _originalUsers = JSON.parse(JSON.stringify(originalUsers))
+
+      _originalUsers.forEach((filteredUser) => {
+        filteredFarmItems = [];
         filteredUser.farmItems.forEach((farmItem) => {
           if (farmItem.category === myFilters.filters.category[0]) {
-
+            filteredFarmItems.push(farmItem);
             filteredUsersByCategory.push(filteredUser);
             console.log(filteredUser);
           }
-          console.log(filteredUsersByCategory);
-          setFilteredUsers(filteredUsersByCategory);
         });
+        filteredUser.farmItems = filteredFarmItems;
       });
+      setFilteredUsers(filteredUsersByCategory);
     }
 
     // setFilteredUsers(filteredUsersByCategory);

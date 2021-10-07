@@ -715,3 +715,45 @@ ul{
   border-bottom: 1px solid #59B175;
   padding: 2rem 0 1rem 0;
 }
+/* Footer */
+
+
+footer{
+
+  color: #428156 !important;
+	padding:50px !important;
+
+}
+
+.Row1 {
+ display:flex;
+ justify-content: space-between !important ;
+ color: #428156 !important;
+ align-items: center;
+
+
+}
+
+.P__Footer{
+
+  display:flex;
+  justify-content: space-between !important ;
+  color: #428156 !important;
+  margin: 0;
+
+
+}
+ .marginFooter {
+
+  border-top: 10px;
+  border-color: #428156;
+ }
+
+.marginTopFooter{
+	margin-top:90px;
+}
+
+.plugs {
+
+  color:#428156
+}
