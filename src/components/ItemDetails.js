@@ -4,7 +4,7 @@ import { useHistory, NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
 import { LoggedUserConsumer } from "../context/loggedUser";
 
-function ItemDetails({ match }) {
+function ItemDetails({ match, setCurrentLoggedInUser }) {
   const loggedInUser = useContext(LoggedUserConsumer);
   const [item, setItem] = useState({});
 
@@ -29,18 +29,19 @@ function ItemDetails({ match }) {
       purchasePrice: `${item.price * quantity}`,
     };
 
+    let response;
+
     if(!loggedInUser.cart){
-      await axios.post(`${process.env.REACT_APP_SERVER_HOSTNAME}/cart`, product, { withCredentials: true});
-      
-
-      toast.success("Added to cart");
-      history.push("/products");
+      response = await axios.post(`${process.env.REACT_APP_SERVER_HOSTNAME}/cart`, product, { withCredentials: true});
     } else{
-      await axios.put(`${process.env.REACT_APP_SERVER_HOSTNAME}/cart/${loggedInUser.cart._id}`, product, {withCredentials: true});
-
-      toast.success("Added to cart");
-      history.push("/products");
+      response = await axios.put(`${process.env.REACT_APP_SERVER_HOSTNAME}/cart/${loggedInUser.cart._id}`, product, {withCredentials: true});
     }
+
+    setCurrentLoggedInUser(response.data);
+    toast.success("Added to cart");
+    history.push("/products");
+
+
   };
 
   // const handleDeleteProject = async (id) => {
