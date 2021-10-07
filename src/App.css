@@ -14,6 +14,10 @@ html,body
     overflow-x: hidden; 
 }
 
+body {
+  min-height: 100vh;
+}
+
 p{
   font-family: 'Karla', sans-serif;
   color: #434343;
@@ -721,11 +725,14 @@ ul{
 footer{
 
   color: #428156 !important;
-	padding:50px !important;
+	padding:40px !important;
+  border-top: 1px solid #59B175 !important;
+  border-top-width: 50px;
+  
 
 }
 
-.Row1 {
+.row1-footer {
  display:flex;
  justify-content: space-between !important ;
  color: #428156 !important;
@@ -743,11 +750,8 @@ footer{
 
 
 }
- .marginFooter {
 
-  border-top: 10px;
-  border-color: #428156;
- }
+
 
 .marginTopFooter{
 	margin-top:90px;
@@ -756,4 +760,42 @@ footer{
 .plugs {
 
   color:#428156
+}
+
+/* User Profile */
+h3{
+
+  color: #59B175;
+
+}
+ 
+.row1{
+background-color:  #55B27433;
+padding: 60px;
+display:flex;
+justify-content: space-around;
+}
+
+.roww1-image {
+
+  display:flex;
+  width: 15rem; /* width of container */
+  height: 10rem; /* height of container */
+  object-fit: cover;
+  
+}
+
+.roww1-text {
+
+  padding-right:100px;
+  
+}
+
+.row1-flex {
+   
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  
 }
