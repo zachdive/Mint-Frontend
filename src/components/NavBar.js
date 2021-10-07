@@ -4,7 +4,7 @@ import axios from "axios";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { IoMdCart } from "react-icons/io";
-import { IconContext } from 'react-icons'
+import { IconContext } from 'react-icons';
 import {toast} from 'react-toastify';
 import { useHistory } from "react-router-dom";
 import logo from "../project3-04.jpg";
