@@ -73,6 +73,7 @@ function Cart() {
           );
 
         })}
+        <NavLink to="/cart/checkout">Check out</NavLink>
       </ul>
     </>
   );
