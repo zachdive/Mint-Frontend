@@ -21,6 +21,7 @@ import CheckOut from "./components/CheckOut";
 import UserEdit from "./components/UserEdit";
 import Home from "./components/Home";
 import Orders from "./components/Orders";
+import Footer from "./components/Footer";
 
 function App() {
   const [loggedInUser, setCurrentLoggedInUser] = useState("");
@@ -141,6 +142,8 @@ function App() {
           )}
         </Switch>
       </LoggedUserProvider>
+      <Footer/>
+
     </div>
   );
 }

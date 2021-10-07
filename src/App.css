@@ -121,6 +121,7 @@ ul{
   justify-content: space-between;
   margin-top: 0.2rem;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+  align-items: center;
 }
 
 .nav-search{
@@ -144,6 +145,35 @@ ul{
   color: transparent !important;
   border-color: transparent !important;
   cursor:unset !important;
+}
+
+.nav-user-container{
+  display: flex;
+  align-items: center;
+  padding-right: 4vw;
+}
+
+.nav-usr-img{
+  border-radius: 10rem;
+  width: 2.5rem; /* width of container */
+  height: 2.5rem; /* height of container */
+  object-fit: cover;
+}
+
+.nav-right{
+  display: flex;
+  justify-content: space-between;
+  margin-right: 1rem;
+}
+
+.logout{
+  border-style: none;
+  background-color: transparent;
+}
+
+.nav-search-input{
+  border-radius: 5rem !important;
+  border: 1px solid #59B175 !important;
 }
   
 /*________________________________________*/
@@ -579,3 +609,45 @@ ul{
 }
 
 /*________________________________________*/
+/* Footer */
+
+
+footer{
+
+  color: #428156 !important;
+	padding:50px !important;
+
+}
+
+.Row1 {
+ display:flex;
+ justify-content: space-between !important ;
+ color: #428156 !important;
+ align-items: center;
+
+
+}
+
+.P__Footer{
+
+  display:flex;
+  justify-content: space-between !important ;
+  color: #428156 !important;
+  margin: 0;
+
+
+}
+ .marginFooter {
+
+  border-top: 10px;
+  border-color: #428156;
+ }
+
+.marginTopFooter{
+	margin-top:90px;
+}
+
+.plugs {
+
+  color:#428156
+}
