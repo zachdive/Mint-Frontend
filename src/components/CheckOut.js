@@ -36,6 +36,7 @@ function CheckOut() {
         { withCredentials: true }
       );
       setUserCart(user.data);
+      setUserProducts(user.data.products);
       
       let userSubTotal = 0;
       user.data.products.map((product) => userSubTotal += product.purchasePrice);
@@ -43,7 +44,6 @@ function CheckOut() {
       setTotal(userSubTotal + user.data.deliveryFee);
     }
     getUser();
-    /* setUserProducts(userCart.products); */
   }, []);
 
 
@@ -170,6 +170,7 @@ function CheckOut() {
           onClick={() => {
             setStepOne(true);
             setStepTwo(false);
+            
           }}
         >
           Go back
