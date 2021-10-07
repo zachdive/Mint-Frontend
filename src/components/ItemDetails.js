@@ -29,13 +29,14 @@ function ItemDetails({ match }) {
       purchasePrice: `${item.price * quantity}`,
     };
 
-    if(loggedInUser.cart){
-      await axios.put(`${process.env.REACT_APP_SERVER_HOSTNAME}/cart/${loggedInUser.cart._id}`, product, {withCredentials: true});
+    if(!loggedInUser.cart){
+      await axios.post(`${process.env.REACT_APP_SERVER_HOSTNAME}/cart`, product, { withCredentials: true});
+      
 
       toast.success("Added to cart");
       history.push("/products");
     } else{
-      await axios.post(`${process.env.REACT_APP_SERVER_HOSTNAME}/cart`, product, { withCredentials: true});
+      await axios.put(`${process.env.REACT_APP_SERVER_HOSTNAME}/cart/${loggedInUser.cart._id}`, product, {withCredentials: true});
 
       toast.success("Added to cart");
       history.push("/products");
