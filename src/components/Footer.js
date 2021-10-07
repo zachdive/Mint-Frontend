@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from 'mdbreact';
 import logo from "../project3-04.jpg";
+import { NavLink, Link } from "react-router-dom";
 
 //history
 import { useHistory } from 'react-router-dom';
@@ -22,31 +23,25 @@ function Footer() {
     //         window.addEventListener('scroll', ) 
     // }, [])
 
-    // useEffect(() => {
-    //     window.addEventListener('scroll', () => {
-    //         if (window.pageYOffset > 100) {
-    //             setShowButton(true);
-    //         } else {
-    //             setShowButton(false);
-    //         }
-    //     });
-    // }, []);
+   
+    
 
     const scrollToTop = () => {
-        // window.scrollTo(0, 0);
-        window.scroll({
-            top: 0,
-            behavior: 'smooth'
-          });
+        window.scrollTo(0, 0);
+        // window.scroll({
+        //     top: 0,
+        //     behavior: 'smooth'
+        //   });
     };
    
     return  (
        
-            <MDBFooter classname = "margin-footer">
+            <MDBFooter className = "margin-footer">
                 <MDBContainer >
-                    <MDBRow classname = "margin-footer">
-                        <MDBCol className = "Row1" md="6">
-                           <img onClick={scrollToTop} className="P__Footer" src={logo} alt="logo" width="200px"/>
+                    <MDBRow >
+                        <MDBCol className = "row1-footer" md="6">
+                          <Link>
+                           <img onClick={scrollToTop} className="P__Footer" src={logo} alt="logo" width="200px"/> </Link>
                             <p className="P__Footer">All Products</p>
                             <p className="P__Footer">My Profile</p>
                             <p className="P__Footer">Orders</p>

@@ -50,7 +50,7 @@ const [value, setValue] = useState(0);
                 value = {`${category._id}`}
                 name={category}
                 type="radio"
-                className="mr-2 ml-4"
+                className="mr-2 ml-4 form-check-input"
             />
             <label className="form-check-label">{category.name}</label>
         </div>
