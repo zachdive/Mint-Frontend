@@ -52,7 +52,7 @@ function App() {
           <Route exact path="/" component={Home} />
           {loggedInUser.isFarmer ? (
             <>
-              <Route exact path="/product/add" component={AddItem} />
+              <PrivateRoute exact path="/product/add" component={AddItem} />
               <Route exact path="/products" component={ListProducts} />
               {/* <Route 
             path="/products/:id" 

@@ -24,6 +24,16 @@ function Signup() {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+
+    const uploadData = new FormData();
+    uploadData.append("file", imageUrl);
+
+    const response = await axios.post(
+      `${process.env.REACT_APP_SERVER_HOSTNAME}/upload`,
+      uploadData
+    );
+
+
     const body = {
       username,
       password,
@@ -33,7 +43,7 @@ function Signup() {
       farmerAdress,
       city,
       zipCode,
-      imageUrl,
+      imageUrl: response.data.fileUrl,
       isFarmer,
     };
     await axios.post(`${process.env.REACT_APP_SERVER_HOSTNAME}/signup`, body);
@@ -160,9 +170,9 @@ function Signup() {
 
             <label>farm image</label>
               <input
-                type="text"
-                onChange={(e) => setImageUrl(e.target.value)}
-                value={imageUrl}
+                type="file"
+                onChange={(e) => setImageUrl(e.target.files[0])}
+                // value={imageUrl}
                 className="signup-user-input"
               />
             </span>
