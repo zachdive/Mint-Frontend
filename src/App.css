@@ -555,7 +555,7 @@ ul{
 
 .signup-user-right-container{
   width: 100%;
-  height: 100vh;
+  min-height: 100%;
   background-image: url("/src/bg_iconfoods_green.png");
   background-size:cover;
   background-position: 50% 100%;
@@ -647,6 +647,7 @@ ul{
   display: flex;
   flex-direction: column;
   text-align: start;
+  min-width: 12rem;
 }
 
 .products-list-filters h4{
@@ -756,13 +757,11 @@ footer{
 }
 
 .P__Footer{
-
   display:flex;
   justify-content: space-between !important ;
   color: #428156 !important;
   margin: 0;
-
-
+  width: 8rem;
 }
 
 
@@ -772,8 +771,11 @@ footer{
 }
 
 .plugs {
-
   color:#428156
+}
+
+.plugs, .copyright {
+  font-size: 0.8rem;
 }
 
 
@@ -977,6 +979,10 @@ footer{
   padding-left: 10rem;
 }
 
+.row2{
+  min-height: 20rem;
+}
+
 .roww1-image {
   width: 8rem; /* width of container */
   height: 10rem; /* height of container */
@@ -998,6 +1004,11 @@ footer{
   color: #59B175;
 }
 
+/*_UserEdit_________________________*/
+.useredit{
+  min-height: 80vh;
+  padding-top: 5vh;
+}
 
 /*_ProductDetails____________________*/
 
