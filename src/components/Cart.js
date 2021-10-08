@@ -21,7 +21,7 @@ function Cart() {
     const product = {
         itemId: item.item._id,
         quantity: item.quantity,
-        purchasePrice: `${item.item.price * item.quantity}`,
+        purchasePrice: item.item.price * item.quantity,
     };
     const response = await axios.put(`${process.env.REACT_APP_SERVER_HOSTNAME}/cart/${userCart._id}/remove`, product, { withCredentials: true });
     setUserCart(response.data);
@@ -31,7 +31,7 @@ function Cart() {
     const product = {
         itemId: item.item._id,
         quantity: item.quantity,
-        purchasePrice: `${item.item.price * item.quantity}`,
+        purchasePrice: item.item.price * item.quantity,
     };
     if (statement === "decrease") {
         const response = await axios.put(`${process.env.REACT_APP_SERVER_HOSTNAME}/cart/${userCart._id}/decrease`, product, { withCredentials: true });
@@ -45,37 +45,44 @@ function Cart() {
   //1
   //3
   return (
-    <>
+    <div className="cart-page">
       <h2>Cart</h2>
-      <ul>
-        {userCart && userCart.products?.map((item, index) => {
+      <div className="cart-box">
+        <ul>
+          {userCart && userCart.products?.map((item, index) => {
 
-          return (
-            <li key={index}>
-                <div>
-                  <NavLink to={`/products/${item.item._id}`}>
+            return (
+              <li key={index}>
+                  <div className="cart-products-box">
+                  <div className="cart-product-info">
+                    <NavLink to={`/products/${item.item._id}`}>
+                      <img width="40px" src={item.item.imageUrl} />
+                    </NavLink>
                     <h4>{item.item.name}</h4>
-                  </NavLink>
-                  <h6>{item.item.price}</h6>
-                  <p>{item.item.expire_in}</p>
-                  <div>
-                    <button onClick={() => handleQuantityButton("decrease", item)}>
-                        -
-                    </button>
-                    <p>{item.quantity}</p>
-                    <button onClick={() => handleQuantityButton("increase", item)}>
-                        +
-                    </button>
+                    <h6>{item.item.price}€</h6>
+                    <p>Expire date: {item.item.expire_in}</p>
                   </div>
-                  <button onClick={() => handleDeleteButton(item)}>Remove</button>
-                </div>
-            </li>
-          );
+                  <div className="cart-buttons-box">
+                    <div className="cart-quantity-buttons">
+                        <button className="cart-quantity-button" onClick={() => handleQuantityButton("decrease", item)}>
+                            -
+                        </button>
+                        <p>{item.quantity}</p>
+                        <button className="cart-quantity-button" onClick={() => handleQuantityButton("increase", item)}>
+                            +
+                        </button>
+                      </div>
+                      <button className="cart-remove-button" onClick={() => handleDeleteButton(item)}>Remove</button>
+                  </div>
+                  </div>
+              </li>
+            );
 
-        })}
-        <NavLink to="/cart/checkout">Check out</NavLink>
-      </ul>
-    </>
+          })}
+        </ul>
+        <NavLink className="cart-checkout-button" to="/cart/checkout">Check out</NavLink>
+      </div>
+    </div>
   );
 }
 
