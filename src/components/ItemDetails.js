@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { LoggedUserConsumer } from "../context/loggedUser";
 import { BsBoxSeam } from "react-icons/bs";
 import { IconContext } from 'react-icons';
+import Button from 'react-bootstrap/Button'
 
 function ItemDetails({ match, setCurrentLoggedInUser }) {
   const loggedInUser = useContext(LoggedUserConsumer);
@@ -55,23 +56,31 @@ function ItemDetails({ match, setCurrentLoggedInUser }) {
   // };
 
   return (
-    <>
-    <IconContext.Provider value={{color: '#59B175', size: '2.5rem' }}>
-      <BsBoxSeam />
-    </IconContext.Provider>
-      <h2>{item.name}</h2>
-      <h4>{item.category}</h4>
-      <h5>Stock: {item.quantity_available}</h5>
-      <h5>{item.price}€</h5>
-      {item.expire_in === true && <h6>{item.expire_in}</h6>}
-      <p>{item.description}</p>
-      {item.imageUrl && <img src={item.imageUrl} alt="product" />}
-      
-      <button onClick={handleAddToCart}>Add to cart</button>
+    <div className="product-details-container">
+      <div className="product-details-left col-md-6">
+        <img src={item.imageUrl} alt="product"/>
+      </div>
+      <div className="product-details-right col-md-6">
+          <h2>{item.name}</h2>
+          <h4>{item.category}</h4>
+          <span>
+            <h5>Stock: {item.quantity_available}</h5>
+            {item.expire_in ? (<h5>Expires in: {item.expire_in}</h5>): <></>}
+          </span>
+          <h1>{item.price}€</h1>
+          <Button onClick={handleAddToCart} variant="success">Add to cart</Button>{' '}
+          <div className="product-description">
+            <IconContext.Provider value={{color: '#59B175', size: '1.5rem' }}>
+              <BsBoxSeam />
+            </IconContext.Provider>
+            <h5>{item.user?.firstName} {item.user?.lastName}</h5>
+          </div>
+          <p>{item.description}</p>
+      </div>
 
-      {/* <NavLink to={`/projects/${product._id}/edit`}>Edit</NavLink> */}
-      {/* <button onClick={() => handleDeleteProject(project._id)}>Delete</button> */}
-    </>
+        {/* <NavLink to={`/projects/${product._id}/edit`}>Edit</NavLink> */}
+        {/* <button onClick={() => handleDeleteProject(project._id)}>Delete</button> */}
+    </div>
   );
 }
 

@@ -74,7 +74,7 @@ const handleChange = async () => {
 
   return loggedInUser ? (
     <>
-      <Nav variant="pills" activeKey="1">
+      <Nav variant="pills" activeKey="1" id="nav">
         <Nav.Item>
           <NavLink eventKey="1" to="/products" className="log-sign-logo">
             <img src={logo} alt="logo" width="200px"/>
@@ -130,7 +130,7 @@ const handleChange = async () => {
           <div className="nav-user-container">                
             <img src={loggedInUser.imageUrl} width="50rem" alt="user img" className="nav-usr-img"/>
             
-            <NavDropdown title= {`${loggedInUser.firstName} ${loggedInUser.lastName}`} id="nav-dropdown">
+            <NavDropdown title= {`${loggedInUser.firstName} ${loggedInUser.lastName}`} numberOfLines={1} ellipsizeMode="tail" style={{ width: 120, flex:1  }} id="nav-dropdown">
               <NavDropdown.Item eventKey="4.1" href={`/user/${loggedInUser._id}`}>My profile</NavDropdown.Item>
               <NavDropdown.Item eventKey="4.2" href="/orders">Orders</NavDropdown.Item>
               {loggedInUser.isFarmer === true && <NavDropdown.Item eventKey="4.2" href="/product/add">Add a product</NavDropdown.Item>}
