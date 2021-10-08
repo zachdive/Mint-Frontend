@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import Button from 'react-bootstrap/Button'
+
 
 function AddItem() {
   const [name, setName] = useState("");
@@ -46,58 +48,74 @@ function AddItem() {
 
 
   return (
-    <>
-      <h2>Add Product</h2>
-      <form onSubmit={handleFormSubmit} encType="multipart/form-data">
-        <label>Name</label>
-        <input
-          type="text"
-          onChange={(e) => setName(e.target.value)}
-          value={name}
-          required
-        />
+    <div className="add-product-container">
+      <div class="add-product-row col-md-6">
+        <h2>Add Product</h2>
+        <form onSubmit={handleFormSubmit} encType="multipart/form-data">
+          <div>
+          <label>Category</label>
+          <select name="type" value={category} onChange={(e) => setCategory(e.target.value)} required>
+            {selectCategory.map((singleCategory, index) => {
+              return <option key={index} value={singleCategory}>{singleCategory}</option>;
+            })}
+          </select>
+          </div>
+          <div>
+            <label>Name</label>
+            <input
+              type="text"
+              onChange={(e) => setName(e.target.value)}
+              value={name}
+              required
+            />
+          </div>
+          
+          <div>
+          <label>Quantity in Stock</label>
+          <input
+            type="number"
+            onChange={(e) => setQuantity(e.target.value)}
+            value={quantity}
+          />
+          </div>
 
-        <label>Category</label>
-        <select name="type" value={category} onChange={(e) => setCategory(e.target.value)} required>
-          {selectCategory.map((singleCategory, index) => {
-            return <option key={index} value={singleCategory}>{singleCategory}</option>;
-          })}
-        </select>
+          <div>
+          <label>Price</label>
+          <input
+            type="number"
+            onChange={(e) => setPrice(e.target.value)}
+            value={price}
+          />
+          </div>
 
-        <label>Quantity in Stock</label>
-        <input
-          type="number"
-          onChange={(e) => setQuantity(e.target.value)}
-          value={quantity}
-        />
+          <div>
+          <label>Expire Date ( 00 / 00 / 0000 )</label>
+          <input
+            type="text"
+            onChange={(e) => setExpire(e.target.value)}
+            value={expire}
+          />
+          </div>
 
-        <label>Price</label>
-        <input
-          type="number"
-          onChange={(e) => setPrice(e.target.value)}
-          value={price}
-        />
+          <div>
+          <label>Description</label>
+          <input
+            type="text"
+            onChange={(e) => setDescription(e.target.value)}
+            value={description}
+          />
+          </div>
 
-        <label>Expire Date ( 00 / 00 / 0000 )</label>
-        <input
-          type="text"
-          onChange={(e) => setExpire(e.target.value)}
-          value={expire}
-        />
-
-        <label>Description</label>
-        <input
-          type="text"
-          onChange={(e) => setDescription(e.target.value)}
-          value={description}
-        />
-
-        <label>Image</label>
-        <input type="file" onChange={(e) => setImageUrl(e.target.files[0])} />
-
-        <button type="submit">Create</button>
-      </form>
-    </>
+          <span>
+          <div className="no-padding">
+          <label>Image</label>
+          <input type="file" onChange={(e) => setImageUrl(e.target.files[0])} /> 
+          </div>         
+            <Button variant="success" type="submit" >Create</Button>{' '}
+          </span>
+        </form>
+      </div>
+    </div>
   );
 }
 
