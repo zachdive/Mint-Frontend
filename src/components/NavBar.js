@@ -129,6 +129,7 @@ const handleChange = async () => {
         <div className="nav-right">
           <div className="nav-user-container">                
             <img src={loggedInUser.imageUrl} width="50rem" alt="user img" className="nav-usr-img"/>
+            
             <NavDropdown title= {`${loggedInUser.firstName} ${loggedInUser.lastName}`} id="nav-dropdown">
               <NavDropdown.Item eventKey="4.1" href={`/user/${loggedInUser._id}`}>My profile</NavDropdown.Item>
               <NavDropdown.Item eventKey="4.2" href="/orders">Orders</NavDropdown.Item>

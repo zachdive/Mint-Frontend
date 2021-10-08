@@ -179,6 +179,17 @@ ul{
   border-radius: 5rem !important;
   border: 1px solid #59B175 !important;
 }
+
+#nav-dropdown{
+
+  color: #434343;
+  text-emphasis-style: bold;
+}
+
+.h8 {
+
+  color: #59B175 !i;
+}
   
 /* Search Dropdown */
 
@@ -805,3 +816,7 @@ justify-content: space-around;
 
   
 }
+
+/* Toggle */
+
+/*  */
