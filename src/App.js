@@ -1,4 +1,5 @@
 import { Switch, Route } from "react-router-dom";
+import './index.css';
 import "./App.css";
 import EditProject from "./components/EditProject";
 import ListProducts from "./components/ListProducts";
@@ -48,7 +49,7 @@ function App() {
           setCurrentLoggedInUser={setCurrentLoggedInUser}
         />
         <Switch>
-          <Route path="/home" component={Home} />
+          <Route exact path="/" component={Home} />
           {loggedInUser.isFarmer ? (
             <>
               <Route exact path="/product/add" component={AddItem} />

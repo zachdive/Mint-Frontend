@@ -135,6 +135,14 @@ ul{
   align-items: center;
 }
 
+.custom-display {
+  display: inline-block;
+}
+
+.custom-width{
+  width: 50vw;
+}
+
 .nav-search form input{
   width: 50vw;
 }
@@ -154,7 +162,6 @@ ul{
 .nav-user-container{
   display: flex;
   align-items: center;
-  padding-right: 4vw;
 }
 
 .nav-usr-img{
@@ -178,6 +185,22 @@ ul{
 .nav-search-input{
   border-radius: 5rem !important;
   border: 1px solid #59B175 !important;
+}
+
+#nav-dropdown{
+
+  color: #434343;
+  text-emphasis-style: bold;
+  font-weight: bolder;
+}
+
+.h8 {
+
+  color: #59B175 !important;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  background-color: white !important;
 }
   
 /* Search Dropdown */
@@ -547,7 +570,7 @@ ul{
 
 .signup-user-right-container{
   width: 100%;
-  height: 100vh;
+  min-height: 100%;
   background-image: url("/src/bg_iconfoods_green.png");
   background-size:cover;
   background-position: 50% 100%;
@@ -639,6 +662,7 @@ ul{
   display: flex;
   flex-direction: column;
   text-align: start;
+  min-width: 12rem;
 }
 
 .products-list-filters h4{
@@ -748,13 +772,11 @@ footer{
 }
 
 .P__Footer{
-
   display:flex;
   justify-content: space-between !important ;
   color: #428156 !important;
   margin: 0;
-
-
+  width: 8rem;
 }
 
 
@@ -764,8 +786,11 @@ footer{
 }
 
 .plugs {
-
   color:#428156
+}
+
+.plugs, .copyright {
+  font-size: 0.8rem;
 }
 
 
@@ -964,12 +989,17 @@ footer{
 
 
 /* User Profile ____________________________*/
-.row1{
+
+.row1 {
   background-color:  #55B27433;
   padding: 60px;
   display:flex;
   align-items: center;
   padding-left: 10rem;
+}
+
+.row2{
+  min-height: 20rem;
 }
 
 .roww1-image {
@@ -993,6 +1023,11 @@ footer{
   color: #59B175;
 }
 
+/*_UserEdit_________________________*/
+.useredit{
+  min-height: 80vh;
+  padding-top: 5vh;
+}
 
 /*_ProductDetails____________________*/
 
@@ -1062,6 +1097,12 @@ footer{
   padding-bottom: 0.6rem;
 }
 
+  
+
+
+/* Toggle */
+
+/*  */
 .product-description h5{
   margin: 0 0 0 1rem;
 }
@@ -1073,6 +1114,7 @@ footer{
   object-fit: cover;
 }
 
+<<<<<<< HEAD
 /*________________________________________*/
 /* _Orders_______________________________*/
 
@@ -1108,4 +1150,61 @@ footer{
   padding: 0 2rem 0 2rem;
   margin-bottom: 2rem;
   color: #428156;
+=======
+/*_AddProduct_________________*/
+
+.add-product-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 3vw;
+}
+
+.add-product-row{
+ display:flex;
+ flex-direction: column;
+ align-items: flex-start;
+ min-height: 100vh;
+}
+
+.add-product-row h2{
+  font-family: 'Karla', sans-serif;
+  color: #59B175;
+  font-weight: 600;
+ }
+
+.add-product-row form{
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 100%;
+}
+
+ .add-product-row form div{
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 2vh;
+  min-width: 100%;
+ }
+
+ .add-product-row form div input{
+  min-width: 100%;
+ }
+
+ .add-product-row form span{
+  display: flex;
+  justify-content: space-between;
+  min-width: 88%;
+  align-items: center
+ }
+
+ .add-product-row form span button{
+   padding-top:0;
+   padding-bottom:0;
+   height: 2.5rem;
+ }
+
+.no-padding{
+  padding-top: 0;
+>>>>>>> 3deb3ca0ac4e4228f4ab68985f631f2c9131b351
 }

@@ -60,7 +60,7 @@ function UserEdit({match}) {
     };
 
     return (
-    <div className="row">
+    <div className="row useredit">
         <div className="col-md-3">
             <img src={loggedInUser.imageUrl} width="100px" height="100px" alt="user-img"/>
         </div>

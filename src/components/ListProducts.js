@@ -157,7 +157,6 @@ function ListProducts() {
   return (
     <div className="products-list-main">
       <div className="products-list-filters">
-        <LoadingIndicator />
         <h4>Categories</h4>
         <div>
           <RadioBox
