@@ -135,6 +135,14 @@ ul{
   align-items: center;
 }
 
+.custom-display {
+  display: inline-block;
+}
+
+.custom-width{
+  width: 50vw;
+}
+
 .nav-search form input{
   width: 50vw;
 }
@@ -975,7 +983,10 @@ footer{
 .checkout-box-content h4 {
   color: #59B175;
   text-decoration: underline;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 136b5435c41c9de43673babd1ce4deaad49ba453
 }
 /* User Profile ____________________________*/
 
@@ -1093,3 +1104,63 @@ footer{
   height: 2.5rem; /* height of container */
   object-fit: cover;
 }
+<<<<<<< HEAD
+=======
+
+/*_AddProduct_________________*/
+
+.add-product-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 3vw;
+}
+
+.add-product-row{
+ display:flex;
+ flex-direction: column;
+ align-items: flex-start;
+ min-height: 100vh;
+}
+
+.add-product-row h2{
+  font-family: 'Karla', sans-serif;
+  color: #59B175;
+  font-weight: 600;
+ }
+
+.add-product-row form{
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 100%;
+}
+
+ .add-product-row form div{
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 2vh;
+  min-width: 100%;
+ }
+
+ .add-product-row form div input{
+  min-width: 100%;
+ }
+
+ .add-product-row form span{
+  display: flex;
+  justify-content: space-between;
+  min-width: 88%;
+  align-items: center
+ }
+
+ .add-product-row form span button{
+   padding-top:0;
+   padding-bottom:0;
+   height: 2.5rem;
+ }
+
+.no-padding{
+  padding-top: 0;
+}
+>>>>>>> 136b5435c41c9de43673babd1ce4deaad49ba453

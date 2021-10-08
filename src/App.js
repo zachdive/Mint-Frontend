@@ -49,7 +49,7 @@ function App() {
           setCurrentLoggedInUser={setCurrentLoggedInUser}
         />
         <Switch>
-          <Route path="/home" component={Home} />
+          <Route exact path="/" component={Home} />
           {loggedInUser.isFarmer ? (
             <>
               <Route exact path="/product/add" component={AddItem} />
