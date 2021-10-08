@@ -151,7 +151,7 @@ const handleChange = async () => {
     <>
     <Nav variant="pills" activeKey="1">
       <Nav.Item>
-        <NavLink eventKey="1" to="/home" className="log-sign-logo">
+        <NavLink eventKey="1" exact to="/" className="log-sign-logo">
           <img src={logo} alt="logo" width="200px"/>
         </NavLink>
       </Nav.Item>

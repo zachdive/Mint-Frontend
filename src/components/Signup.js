@@ -12,9 +12,10 @@ function Signup() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [address, setAddress] = useState("");
+  const [ farmerAdress, setAddress] = useState("");
   const [city, setCity] = useState("");
-  const [zip, setZip] = useState("");
+  const [zipCode, setZip] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const [isFarmer, setIsFarmer] = useState(false);
   
   
@@ -28,9 +29,10 @@ function Signup() {
       firstName,
       lastName,
       phoneNumber,
-      address,
+      farmerAdress,
       city,
-      zip,
+      zipCode,
+      imageUrl,
       isFarmer,
     };
     await axios.post(`${process.env.REACT_APP_SERVER_HOSTNAME}/signup`, body);
@@ -101,7 +103,7 @@ function Signup() {
             <input
               type="text"
               onChange={(e) => setAddress(e.target.value)}
-              value={address}
+              value={farmerAdress}
               className="signup-user-input"
             />
           </span>  
@@ -112,7 +114,7 @@ function Signup() {
               <input
                 type="text"
                 onChange={(e) => setZip(e.target.value)}
-                value={zip}
+                value={zipCode}
                 className="signup-user-input"
               />
             </span>
@@ -135,7 +137,15 @@ function Signup() {
               value={phoneNumber}
               className="signup-user-input"
             />
-          </span>
+
+            <label>farm image</label>
+              <input
+                type="text"
+                onChange={(e) => setImageUrl(e.target.value)}
+                value={imageUrl}
+                className="signup-user-input"
+              />
+            </span>
 
           <span className="signup-user-buttons r-farm-buttons">
             <Button type="submit" variant="success" size="lg">Sign up</Button>{' '}
