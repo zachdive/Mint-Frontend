@@ -985,10 +985,6 @@ footer{
 .checkout-box-content h4 {
   color: #59B175;
   text-decoration: underline;
-<<<<<<< HEAD
-
-=======
->>>>>>> 136b5435c41c9de43673babd1ce4deaad49ba453
 }
 /* User Profile ____________________________*/
 
@@ -1115,8 +1111,6 @@ footer{
   height: 2.5rem; /* height of container */
   object-fit: cover;
 }
-<<<<<<< HEAD
-=======
 
 /*_AddProduct_________________*/
 
@@ -1174,4 +1168,3 @@ footer{
 .no-padding{
   padding-top: 0;
 }
->>>>>>> 136b5435c41c9de43673babd1ce4deaad49ba453
