@@ -111,11 +111,9 @@ const handleChange = async () => {
                                                 <div className="container-fluid p-0 d-flex flex-column">
                                                     <div className='me-1'>
                                                         <img width='80px' src= {product.imageUrl} alt="..." />
-                                                    </div>
-                                                    <div className='text-wrap' style={{height: '200px', fontSize: '0.8rem', overflowY: 'hidden'}}>
-    
-                  
-                                                        <Link to={`/products/${product._id}`} onClick={handleClick} className='btn btn-primary btn-sm ms-1'>View Product</Link>
+                                                        <div className='text-wrap' style={{height: '200px', fontSize: '0.8rem', overflowY: 'hidden'}}>
+                                                          <Link to={`/products/${product._id}`} onClick={handleClick} className='btn btn-primary btn-sm ms-1'>View Product</Link>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

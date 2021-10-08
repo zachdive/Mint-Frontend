@@ -135,6 +135,14 @@ ul{
   align-items: center;
 }
 
+.custom-display {
+  display: inline-block;
+}
+
+.custom-width{
+  width: 50vw;
+}
+
 .nav-search form input{
   width: 50vw;
 }
