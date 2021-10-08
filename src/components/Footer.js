@@ -44,14 +44,14 @@ function Footer() {
                 <div className="footer-copyright py-6 marginTopFooter">
                 
                     <MDBRow fluid>
-                    <MDBCol md="4">
+                    <MDBCol md="4" className = "copyright">
                         &copy; {new Date().getFullYear()} Copyright:   mint.io. All Rights Reserved.
                     </MDBCol>
                     <MDBCol md="4"></MDBCol>
                     <MDBCol md="4" className = "plugs">
-                        <a className = "plugs" href="https://github.com/joamonteiro">Joaõ Monteiro</a> &&&nbsp;  
-                        <a className = "plugs" href="https://github.com/Nunofgg">Nuno Gonçalves</a> &&&nbsp; 
-                        <a className = "plugs" href="https://github.com/zachdive">Zach Dive</a>
+                        <a className = "plugs" href="https://www.linkedin.com/in/joamonteiro/">João Monteiro</a> &&&nbsp;  
+                        <a className = "plugs" href="https://www.linkedin.com/in/nunofgg/">Nuno Gonçalves</a> &&&nbsp; 
+                        <a className = "plugs" href="https://www.linkedin.com/in/zacharydive/">Zach Dive</a>
                      </MDBCol>
                     </MDBRow>
                    

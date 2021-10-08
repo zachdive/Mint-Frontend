@@ -3,6 +3,10 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
 import { LoggedUserConsumer } from "../context/loggedUser";
+import masterCard from "../master-card.png";
+import visa from "../visa.png";
+import americanExpress from "../american-express.png";
+
 
 function CheckOut() {
   const loggedInUser = useContext(LoggedUserConsumer);
@@ -81,6 +85,7 @@ function CheckOut() {
     return (
       <div className="checkout-page">
         <div className="checkout-box">
+        <h5>🛒 ———————————————— step2 ——————————————— step3</h5>
           <div className="checkout-box-content">
             <div>
               <h5>Your Products</h5>
@@ -161,6 +166,7 @@ function CheckOut() {
     return (
       <div className="checkout-page">
         <div className="checkout-box">
+        <h5>step1 ———————————————— 🛒 ——————————————— step3</h5>
           <div className="checkout-box-content">
             <div>
               <h5>Your Address</h5>
@@ -226,7 +232,7 @@ function CheckOut() {
                 />
 
                 <div>
-                  <img alt="MasterCard" />
+                  <img src={masterCard} width="50px" alt="MasterCard" />
                   <input
                     className="checkout-input-date"
                     type="radio"
@@ -238,7 +244,7 @@ function CheckOut() {
                   />
                 </div>
                 <div>
-                  <img alt="VISA" />
+                  <img src={visa} width="50px" alt="VISA" />
                   <input
                     type="radio"
                     id="visa"
@@ -249,7 +255,7 @@ function CheckOut() {
                   />
                 </div>
                 <div>
-                  <img alt="AmericanExpress" />
+                  <img src={americanExpress} width="50px" alt="AmericanExpress" />
                   <input
                     type="radio"
                     id="americanExpress"
@@ -290,6 +296,7 @@ function CheckOut() {
     return (
       <div className="checkout-page">
         <div className="checkout-box">
+        <h5>step1 ———————————————— step2 ——————————————— ✅</h5>
           <div className="checkout-box-content">
             <div>
               <h4>Products</h4>
