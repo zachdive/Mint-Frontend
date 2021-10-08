@@ -187,6 +187,22 @@ ul{
   border-radius: 5rem !important;
   border: 1px solid #59B175 !important;
 }
+
+#nav-dropdown{
+
+  color: #434343;
+  text-emphasis-style: bold;
+  font-weight: bolder;
+}
+
+.h8 {
+
+  color: #59B175 !important;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  background-color: white !important;
+}
   
 /* Search Dropdown */
 
@@ -969,9 +985,14 @@ footer{
 .checkout-box-content h4 {
   color: #59B175;
   text-decoration: underline;
+<<<<<<< HEAD
+
+=======
+>>>>>>> 136b5435c41c9de43673babd1ce4deaad49ba453
 }
 /* User Profile ____________________________*/
-.row1{
+
+.row1 {
   background-color:  #55B27433;
   padding: 60px;
   display:flex;
@@ -1078,6 +1099,12 @@ footer{
   padding-bottom: 0.6rem;
 }
 
+  
+
+
+/* Toggle */
+
+/*  */
 .product-description h5{
   margin: 0 0 0 1rem;
 }
@@ -1088,6 +1115,8 @@ footer{
   height: 2.5rem; /* height of container */
   object-fit: cover;
 }
+<<<<<<< HEAD
+=======
 
 /*_AddProduct_________________*/
 
@@ -1145,3 +1174,4 @@ footer{
 .no-padding{
   padding-top: 0;
 }
+>>>>>>> 136b5435c41c9de43673babd1ce4deaad49ba453

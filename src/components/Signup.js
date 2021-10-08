@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { Switch } from '@headlessui/react';
 import { useHistory, NavLink } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -17,6 +17,7 @@ function Signup() {
   const [zipCode, setZip] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [isFarmer, setIsFarmer] = useState(false);
+  
   
   
   const history = useHistory();
@@ -45,17 +46,36 @@ function Signup() {
       <div className="signup-user-right-container">
       </div>
       <div className="signup-user-left-container col-md-6 r-farm">    
-        <h2 className="r-farm-h2">Register has a farmer!</h2>
+        <h2 className="r-farm-h2">Register as a farmer!</h2>
         <form onSubmit={handleFormSubmit} className="signup-user-form">
+
           <span className="signup-user-toggle">
-            <label className="col-md-9 toggle">Do you want to sell your goods?</label>
+            <label className="col-md-9 toggle switch">Do you want to sell your goods?</label>
             <input
               type="checkbox"
               checked={isFarmer}
               onChange={() => setIsFarmer(!isFarmer)}
               className="signup-user-input"
             />
+             <span class="slider round"></span>
           </span>
+
+      {/* <div className="py-16 signup-user-toggle">
+      <label className="col-md-9 toggle">Do you want to sell your goods?</label>
+      <Switch
+        checked={isFarmer}
+        onChange= {setIsFarmer}
+        className={`${isFarmer ? 'bg-teal-900' : 'bg-teal-700'}
+          relative inline-flex flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
+      >
+        <span className="sr-only">Use setting</span>
+        <span
+          aria-hidden="true"
+          className={`${isFarmer ? 'translate-x-9' : 'translate-x-0'}
+            pointer-events-none inline-block h-[34px] w-[34px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200`}
+        />
+      </Switch>
+    </div> */}
 
           <span className="row">
             <span className="signup-user-box col-md-6">
@@ -169,6 +189,23 @@ function Signup() {
             className="signup-user-input"
           />
         </span>
+{/*     
+    <div className="py-16 signup-user-toggle">
+      <label className="col-md-9 toggle">Do you want to sell your goods?</label>
+      <Switch
+        checked={isFarmer}
+        onChange= {setIsFarmer}
+        className={`${isFarmer ? 'bg-teal-900' : 'bg-teal-700'}
+          relative inline-flex flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
+      >
+        <span className="sr-only">Use setting</span>
+        <span
+          aria-hidden="true"
+          className={`${isFarmer ? 'translate-x-9' : 'translate-x-0'}
+            pointer-events-none inline-block h-[34px] w-[34px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200`}
+        />
+      </Switch>
+    </div> */}
 
         <span className="signup-user-box">
           <label>email</label>

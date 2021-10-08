@@ -1,4 +1,5 @@
 import { Switch, Route } from "react-router-dom";
+import './index.css';
 import "./App.css";
 import EditProject from "./components/EditProject";
 import ListProducts from "./components/ListProducts";
