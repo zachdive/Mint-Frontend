@@ -15,7 +15,7 @@ function Signup() {
   const [ farmerAdress, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [zipCode, setZip] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+  //const [imageUrl, setImageUrl] = useState("");
   const [isFarmer, setIsFarmer] = useState(false);
   
   
@@ -25,13 +25,13 @@ function Signup() {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
-    const uploadData = new FormData();
-    uploadData.append("file", imageUrl);
+    // const uploadData = new FormData();
+    // uploadData.append("file", imageUrl);
 
-    const response = await axios.post(
-      `${process.env.REACT_APP_SERVER_HOSTNAME}/upload`,
-      uploadData
-    );
+    // const response = await axios.post(
+    //   `${process.env.REACT_APP_SERVER_HOSTNAME}/upload`,
+    //   uploadData
+    // );
 
 
     const body = {
@@ -43,7 +43,7 @@ function Signup() {
       farmerAdress,
       city,
       zipCode,
-      imageUrl: response.data.fileUrl,
+      //imageUrl, //: response.data.fileUrl,
       isFarmer,
     };
     await axios.post(`${process.env.REACT_APP_SERVER_HOSTNAME}/signup`, body);
@@ -168,13 +168,13 @@ function Signup() {
               className="signup-user-input"
             />
 
-            <label>farm image</label>
+            {/* <label>farm image</label>
               <input
                 type="file"
                 onChange={(e) => setImageUrl(e.target.files[0])}
                 // value={imageUrl}
                 className="signup-user-input"
-              />
+              /> */}
             </span>
 
           <span className="signup-user-buttons r-farm-buttons">
