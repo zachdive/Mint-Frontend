@@ -1041,6 +1041,21 @@ footer{
 .useredit{
   min-height: 80vh;
   padding-top: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-edit-image-div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  background-color: #55B27433;
+  padding: 20px 0 20px 40px;
+}
+
+.user-edit-image-div img {
+  margin-bottom: 20px;
 }
 
 /*_ProductDetails____________________*/
