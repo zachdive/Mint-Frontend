@@ -73,7 +73,7 @@ function App() {
                 }}
               />
               <Route exact path="/user/:id" component={UserProfile} />
-              <Route exact path="/user/:id/edit" component={UserEdit} />
+              <Route path="/user/:id/edit" component={UserEdit} />
               <Route path="/signup" component={Signup} />
               <Route
                 path="/Login"

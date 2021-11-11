@@ -34,12 +34,12 @@ function UserEdit({match}) {
         setCity(project.city);
         setZipCode(project.zipCode);
         setImageUrl(project.imageUrl);    }
+        console.log(loggedInUser);
       getUser();
     }, []);
   
     const handleFormSubmit = async (e) => {
       e.preventDefault();
-      debugger;
       const body = {
         firstName,
         lastName,
@@ -60,53 +60,8 @@ function UserEdit({match}) {
     };
 
     return (
-    <div className="row useredit">
-        <div className="col-md-3">
-            <img src={loggedInUser.imageUrl} width="100px" height="100px" alt="user-img"/>
-        </div>
-        <div className="col-md-6">
-            <Form onSubmit={handleFormSubmit}>
-                <Row className="mb-3">
-                    <Form.Group as={Col} controlId="formGridEmail">
-                    <Form.Label>First Name</Form.Label>
-                    <Form.Control type="firstName" placeholder="Enter first name" value={firstName}  onChange={(e) => setFirstName(e.target.value)}/>
-                    </Form.Group>
-
-                    <Form.Group as={Col} controlId="formGridPassword">
-                    <Form.Label>Last Name</Form.Label>
-                    <Form.Control type="lastName" placeholder="Enter last name" value={lastName}  onChange={(e) => setLastName(e.target.value)}/>
-                    </Form.Group>
-                </Row>
-
-                <Row className="mb-3">
-                    <Form.Group as={Col} controlId="formGridAddress2">
-                        <Form.Label>Phone number</Form.Label>
-                        <Form.Control placeholder="000 000 000" value={phoneNumber}  onChange={(e) => setPhoneNumber(e.target.value)}/>
-                    </Form.Group>
-
-                    <Form.Group as={Col} controlId="formGridAddress1">
-                        <Form.Label>Address</Form.Label>
-                        <Form.Control placeholder="1234 Main St" value={farmerAdress} onChange={(e) => setFarmerAdress(e.target.value)}/>
-                    </Form.Group>
-                </Row>
-
-                <Row className="mb-3">
-                    <Form.Group as={Col} controlId="formGridCity">
-                    <Form.Label>City</Form.Label>
-                    <Form.Control placeholder="Lisbon" value={city} onChange={(e) => setCity(e.target.value)}/>
-                    </Form.Group>
-
-                    <Form.Group as={Col} controlId="formGridZip">
-                    <Form.Label>Zip</Form.Label>
-                    <Form.Control placeholder="1000-000" value={zipCode} onChange={(e) => setZipCode(e.target.value)}/>
-                    </Form.Group>
-                </Row>
-
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
-            </Form>
-        </div>
+    <div>
+        Hello
     </div>
     );
 }

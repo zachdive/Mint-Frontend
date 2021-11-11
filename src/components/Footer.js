@@ -32,7 +32,7 @@ function Footer() {
                 </MDBContainer>
                 <div className="footer-copyright py-6 marginTopFooter">
                 
-                    <MDBRow fluid>
+                    <MDBRow fluid="true">
                     <MDBCol md="4" className = "copyright">
                         &copy; {new Date().getFullYear()} Copyright:   mint.io. All Rights Reserved.
                     </MDBCol>
