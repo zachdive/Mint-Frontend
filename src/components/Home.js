@@ -15,7 +15,7 @@ function Home() {
                     At mint.io we take the concept of farm to table and bring it to
                     the comfort of your home by delivering you the best local goods! 
                 </p>
-                <NavLink to="/signup">Do you have your farm and want to sell your products?</NavLink>
+                <NavLink to="/signup">Do you have a farm and want to sell your products?</NavLink>
                 <Button className="land-img-sign" variant="outline-success" href="/signup" size="lg">Sign up</Button>{' '}
             </div>
         </div>
@@ -23,8 +23,8 @@ function Home() {
                 <div className="col-md-10">
                     <h2>Hungry for Fresh Goods?</h2>
                     <p>
-                        Inside of our website you’ll be hable to find alot of farms that look alot like the one beneath.
-                        Apart from vegetables and fruits we also dairy, beverages, bakerys and alot more!
+                        Using our platform you’ll be able to connect with many of your local producers like below.
+                        Apart from vegetables and fruits we also have dairy, beverages, grains and alot more!
                     </p>
                     <img src={scrollDown} alt="scroll down" width="20px"/>
                 </div>
@@ -78,7 +78,7 @@ function Home() {
                         <h3>Alice Truman</h3>
                         <h4>FARMER</h4>
                         <p>
-                            Mint.io helped me prupolsing my small hobbie into a whole new buisness opportunity! Come check some of my most loved goods! 
+                            Mint.io helped me expand my agriculture busines and reach a whole new set of clients. Come check some of my most loved goods, produced straight from my farm! 
                         </p>
                         <NavLink to="/signup">Check other farmers</NavLink>
                     </div>
@@ -89,7 +89,7 @@ function Home() {
                     <div className="land-sec-text">
                         <h2>Sign up to start browising the <strong>B E S T</strong>  local products!</h2>
                         <p>
-                            Inside you’ll find out some more informations about the local offers of farmer goods. Finish the process and sign up to start making your orders!
+                            Browse our digital farmers market and purchase a wide-range of local products. Finish the process and sign up to start making your orders!
                         </p>
                     </div>
                     <div className="land-sec-5-buttons">

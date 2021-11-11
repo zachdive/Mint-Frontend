@@ -192,6 +192,7 @@ ul{
   color: #434343;
   text-emphasis-style: bold;
   font-weight: bolder;
+  
 }
 
 .h8 {
@@ -1116,6 +1117,7 @@ footer{
 
 /*________________________________________*/
 /* _Orders_______________________________*/
+
 
 .orders-page {
   width: 100vw;
