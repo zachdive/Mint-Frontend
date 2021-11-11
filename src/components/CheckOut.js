@@ -6,6 +6,8 @@ import { LoggedUserConsumer } from "../context/loggedUser";
 import masterCard from "../master-card.png";
 import visa from "../visa.png";
 import americanExpress from "../american-express.png";
+import { IoMdCart } from "react-icons/io";
+import { IconContext } from 'react-icons';
 
 
 function CheckOut() {
@@ -85,7 +87,9 @@ function CheckOut() {
     return (
       <div className="checkout-page">
         <div className="checkout-box">
-        <h5>🛒 ———————————————— step2 ——————————————— step3</h5>
+        <h5><IconContext.Provider value={{color: '#59B175', size: '2.5rem' }}>
+              <IoMdCart />
+            </IconContext.Provider> .................................. step2 .................................. step3</h5>
           <div className="checkout-box-content">
             <div>
               <h5>Your Products</h5>
@@ -166,7 +170,9 @@ function CheckOut() {
     return (
       <div className="checkout-page">
         <div className="checkout-box">
-        <h5>step1 ———————————————— 🛒 ——————————————— step3</h5>
+        <h5>step1 .................................. <IconContext.Provider value={{color: '#59B175', size: '2.5rem' }}>
+              <IoMdCart />
+            </IconContext.Provider> .................................. step3</h5>
           <div className="checkout-box-content">
             <div>
               <h5>Your Address</h5>
@@ -296,7 +302,7 @@ function CheckOut() {
     return (
       <div className="checkout-page">
         <div className="checkout-box">
-        <h5>step1 ———————————————— step2 ——————————————— ✅</h5>
+        <h5>step1 .................................. step2 .................................. ✅</h5>
           <div className="checkout-box-content">
             <div>
               <h4>Products</h4>

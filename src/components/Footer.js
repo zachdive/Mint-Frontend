@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from 'mdbreact';
 import logo from "../project3-04.jpg";
-// import { NavLink, Link } from "react-router-dom";
- import { Link } from 'react-scroll';
+import { NavLink } from 'react-router-dom';
+import { LoggedUserConsumer } from "../context/loggedUser";
+import { Link } from 'react-scroll';
 import {animateScroll as scroll} from 'react-scroll';
 
 //history
@@ -10,19 +11,7 @@ import { useHistory } from 'react-router-dom';
 
 
 function Footer() {
-
-  
-
-   
-    
-
-    // const scrollToTop = () => {
-    //     window.scrollTo(0, 0);
-    //     // window.scroll({
-    //     //     top: 0,
-    //     //     behavior: 'smooth'
-    //     //   });
-    // };
+    const loggedInUser = useContext(LoggedUserConsumer);
    
     return  (
        
@@ -34,9 +23,9 @@ function Footer() {
                           {/* <div  onClick={() => scroll.scrollToTop()}> */}
                            <img  onClick={() => scroll.scrollToTop()} className="P__Footer" src={logo} alt="logo" width="200px"/> 
                            {/* </div> */}
-                            <p className="P__Footer">All Products</p>
-                            <p className="P__Footer">My Profile</p>
-                            <p className="P__Footer">Orders</p>
+                            <NavLink exact to="/products"><p className="P__Footer">All Products</p></NavLink>
+                            <NavLink exact to="#"/*{`/user/${loggedInUser._id}`}*/><p className="P__Footer">My Profile</p></NavLink>
+                            <NavLink exact to="/orders"><p className="P__Footer">Orders</p></NavLink>
                         </MDBCol>
                      
                     </MDBRow>
