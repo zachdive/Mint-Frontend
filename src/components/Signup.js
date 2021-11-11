@@ -15,7 +15,7 @@ function Signup() {
   const [ farmerAdress, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [zipCode, setZip] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+  //const [imageUrl, setImageUrl] = useState("");
   const [isFarmer, setIsFarmer] = useState(false);
   
   
