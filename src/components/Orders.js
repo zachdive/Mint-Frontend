@@ -38,7 +38,7 @@ function Orders() {
                     <p>{order.payment.cardNumber}</p>
                     <p>{order.payment.cardType}</p>
                   </div>
-                  <h6>Total: {order.total}€</h6>
+                  <h6>Total: {(order.total).toFixed(2)}€</h6>
                 </div>
               </li>
             );

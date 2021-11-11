@@ -1114,7 +1114,6 @@ footer{
   object-fit: cover;
 }
 
-<<<<<<< HEAD
 /*________________________________________*/
 /* _Orders_______________________________*/
 
@@ -1150,7 +1149,7 @@ footer{
   padding: 0 2rem 0 2rem;
   margin-bottom: 2rem;
   color: #428156;
-=======
+}
 /*_AddProduct_________________*/
 
 .add-product-container {
@@ -1206,5 +1205,4 @@ footer{
 
 .no-padding{
   padding-top: 0;
->>>>>>> 3deb3ca0ac4e4228f4ab68985f631f2c9131b351
 }
