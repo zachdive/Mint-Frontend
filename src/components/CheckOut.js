@@ -75,7 +75,7 @@ function CheckOut() {
     };
 
     await axios.put(`${process.env.REACT_APP_SERVER_HOSTNAME}/orders`, order, {
-      withCredentials: true,
+      withCredentials: true
     });
 
     toast.success("Purchase Sucess!");

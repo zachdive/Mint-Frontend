@@ -43,7 +43,7 @@ function Signup() {
       farmerAdress,
       city,
       zipCode,
-      //imageUrl, //: response.data.fileUrl,
+      // imageUrl: response.data.fileUrl,
       isFarmer,
     };
     await axios.post(`${process.env.REACT_APP_SERVER_HOSTNAME}/signup`, body);
