@@ -768,8 +768,10 @@ footer{
  justify-content: space-between !important ;
  color: #428156 !important;
  align-items: center;
+}
 
-
+.row1-footer a{
+  text-decoration: none;
 }
 
 .P__Footer{
