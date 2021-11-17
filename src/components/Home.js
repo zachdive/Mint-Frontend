@@ -78,7 +78,7 @@ function Home() {
                         <h3>Alice Truman</h3>
                         <h4>FARMER</h4>
                         <p>
-                            Mint.io helped me expand my agriculture busines and reach a whole new set of clients. Come check some of my most loved goods, produced straight from my farm! 
+                            Mint.io helped me expand my agriculture business and reach a whole new set of clients. Come check some of my most loved goods, produced straight from my farm! 
                         </p>
                         <NavLink to="/signup">Check other farmers</NavLink>
                     </div>
