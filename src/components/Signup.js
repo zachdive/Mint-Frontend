@@ -4,7 +4,8 @@ import { useHistory, NavLink } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import SignupProvider from "./SignupProvider";
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
+import Fade from 'react-reveal/Fade';
 
 function Signup() {
   const [username, setUsername] = useState("");
@@ -53,6 +54,7 @@ function Signup() {
 
   return isFarmer ? (
     <div className="signup-user">
+      <Fade right>
       <div className="signup-user-right-container">
       </div>
       <div className="signup-user-left-container col-md-6 r-farm">    
@@ -184,9 +186,11 @@ function Signup() {
 
         </form>
       </div>
+      </Fade>
     </div>
   ) : (
     <div className="signup-user">
+    <Fade left>
     <div className="signup-user-left-container col-md-6">    
       <h2>Get in with the goods!</h2>
       <form onSubmit={handleFormSubmit} className="signup-user-form">
@@ -275,8 +279,9 @@ function Signup() {
 
       </form>
     </div>
-    <div className="signup-user-right-container">
-    </div>
+    </Fade>
+      <div className="signup-user-right-container">
+      </div>
   </div>
   );
 }

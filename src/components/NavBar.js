@@ -73,9 +73,9 @@ const handleChange = async () => {
 
   return loggedInUser ? (
     <>
-      <Nav variant="pills" activeKey="1" id="nav">
+      <Nav variant="pills" activekey="1" id="nav">
         <Nav.Item>
-          <NavLink eventKey="1" to="/products" className="log-sign-logo">
+          <NavLink eventkey="1" to="/products" className="log-sign-logo">
             <img src={logo} alt="logo" width="200px"/>
           </NavLink>
         </Nav.Item>
@@ -125,14 +125,14 @@ const handleChange = async () => {
                         </Nav.Item>
         <div className="nav-right">
           <div className="nav-user-container">                
-            <img src={loggedInUser.imageUrl} width="50rem" alt="user img" className="nav-usr-img"/>
+            <img src={loggedInUser.imageUrl} width="50rem" alt="img" className="nav-usr-img"/>
             
-            <NavDropdown title= {`${loggedInUser.firstName} ${loggedInUser.lastName}`} numberOfLines={1} ellipsizeMode="tail" style={{ width: 160, flex:1  }} id="nav-dropdown">
-              <NavDropdown.Item eventKey="4.1" href={`/user/${loggedInUser._id}`}>My profile</NavDropdown.Item>
-              <NavDropdown.Item eventKey="4.2" href="/orders">Orders</NavDropdown.Item>
-              {loggedInUser.isFarmer === true && <NavDropdown.Item eventKey="4.2" href="/product/add">Add a product</NavDropdown.Item>}
+            <NavDropdown title= {`${loggedInUser.firstName} ${loggedInUser.lastName}`} numberoflines={1} ellipsizemode="tail" style={{ width: 160, flex:1  }} id="nav-dropdown">
+              <NavDropdown.Item eventkey="4.1" href={`/user/${loggedInUser._id}`}>My profile</NavDropdown.Item>
+              <NavDropdown.Item eventkey="4.2" href="/orders">Orders</NavDropdown.Item>
+              {loggedInUser.isFarmer === true && <NavDropdown.Item eventkey="4.2" href="/product/add">Add a product</NavDropdown.Item>}
               <NavDropdown.Divider />
-              <NavDropdown.Item eventKey="4.4">
+              <NavDropdown.Item eventkey="4.4">
                 <button onClick={logoutUser} className="logout">Logout</button>
               </NavDropdown.Item>
             </NavDropdown>
@@ -140,7 +140,7 @@ const handleChange = async () => {
           <Nav.Item>
           
             <IconContext.Provider value={{color: '#59B175', size: '2.5rem' }}>
-              <NavLink  eventKey="3" to='/cart'><IoMdCart /></NavLink>
+              <NavLink  eventkey="3" to='/cart'><IoMdCart /></NavLink>
             </IconContext.Provider>
           
           </Nav.Item>
@@ -149,9 +149,9 @@ const handleChange = async () => {
     </>
   ) : (
     <>
-    <Nav variant="pills" activeKey="1">
+    <Nav variant="pills" activekey="1">
       <Nav.Item>
-        <NavLink eventKey="1" exact to="/" className="log-sign-logo">
+        <NavLink eventkey="1" exact to="/" className="log-sign-logo">
           <img src={logo} alt="logo" width="200px"/>
         </NavLink>
       </Nav.Item>
@@ -162,7 +162,7 @@ const handleChange = async () => {
         </Nav.Link>
       </Nav.Item>
       <Nav.Item className="log-nav">
-        <NavLink eventKey="3" to="/login">
+        <NavLink eventkey="3" to="/login">
           Login
         </NavLink>
       </Nav.Item>

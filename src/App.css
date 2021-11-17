@@ -768,8 +768,10 @@ footer{
  justify-content: space-between !important ;
  color: #428156 !important;
  align-items: center;
+}
 
-
+.row1-footer a{
+  text-decoration: none;
 }
 
 .P__Footer{
@@ -778,6 +780,7 @@ footer{
   color: #428156 !important;
   margin: 0;
   width: 8rem;
+  text-decoration: none;
 }
 
 
@@ -787,7 +790,8 @@ footer{
 }
 
 .plugs {
-  color:#428156
+  color:#428156;
+  text-decoration: none;
 }
 
 .plugs, .copyright {
@@ -921,6 +925,10 @@ footer{
   padding-top: 2rem;
 }
 
+.checkout-box h5{
+  color:#59B175;
+}
+
 .checkout-box-content {
   margin-top: 1.5rem;
   width: 50vw;
@@ -929,12 +937,19 @@ footer{
   border-radius: 0.4rem;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 2rem;
+  text-align: start;
+}
+
+.checkout-box-content .div{
+  min-height: 100vh;
 }
 
 .checkout-box-content h5 {
   color: #59B175;
   text-decoration: underline;
+  text-align: start;
 }
 
 .checkout-products-box {
@@ -966,7 +981,7 @@ footer{
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .checkout-input-date {
@@ -1028,6 +1043,21 @@ footer{
 .useredit{
   min-height: 80vh;
   padding-top: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-edit-image-div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  background-color: #55B27433;
+  padding: 20px 0 20px 40px;
+}
+
+.user-edit-image-div img {
+  margin-bottom: 20px;
 }
 
 /*_ProductDetails____________________*/
@@ -1152,7 +1182,6 @@ footer{
   margin-bottom: 2rem;
   color: #428156;
 }
-
 /*_AddProduct_________________*/
 
 .add-product-container {
@@ -1208,5 +1237,4 @@ footer{
 
 .no-padding{
   padding-top: 0;
-
 }
