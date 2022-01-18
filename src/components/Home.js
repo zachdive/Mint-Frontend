@@ -101,7 +101,7 @@ function Home() {
                 <div className="col-md-10 land-sec-5">
                 <Slide left cascade>
                     <div className="land-sec-text">
-                        <h2>Sign up to start browising the <strong>B E S T</strong>  local products!</h2>
+                        <h2>Sign up to start browsing the <strong>B E S T</strong>  local products!</h2>
                         <p>
                             Browse our digital farmers market and purchase a wide-range of local products. Finish the process and sign up to start making your orders!
                         </p>
