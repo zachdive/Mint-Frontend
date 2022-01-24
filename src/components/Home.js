@@ -31,7 +31,7 @@ function Home() {
                     </Fade>
                     <p>
                         Using our platform you’ll be able to connect with many of your local producers like below.
-                        Apart from vegetables and fruits we also have dairy, beverages, grains and alot more!
+                        Along with fruit and vegetables, we also have dairy, beverages, grains and alot more!
                     </p>
                     <img src={scrollDown} alt="scroll down" width="20px"/>
                 </div>

@@ -38,9 +38,9 @@ function Footer() {
                     </MDBCol>
                     <MDBCol md="4"></MDBCol>
                     <MDBCol md="4" className = "plugs">
-                        <a className = "plugs" href="https://www.linkedin.com/in/joamonteiro/">João Monteiro</a> &&&nbsp;  
+                        {/* <a className = "plugs" href="https://www.linkedin.com/in/joamonteiro/">João Monteiro</a> &&&nbsp;  
                         <a className = "plugs" href="https://www.linkedin.com/in/nunofgg/">Nuno Gonçalves</a> &&&nbsp; 
-                        <a className = "plugs" href="https://www.linkedin.com/in/zacharydive/">Zach Dive</a>
+                        <a className = "plugs" href="https://www.linkedin.com/in/zacharydive/">Zach Dive</a> */}
                      </MDBCol>
                     </MDBRow>
                    
